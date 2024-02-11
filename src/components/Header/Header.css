@@ -11,6 +11,7 @@ header {
 
 header .right-icons{
     gap: 30px;
+    margin-right: 14px;
 }
 
 header .nav-links .active{
@@ -85,18 +86,8 @@ header .nav-footer .trademark{
     margin-top: 16px;
 }
 
-@media only screen and (min-width: 320px) and (max-width: 767px) {
-    .only-desktop {
-        display: none;
-    }
-}
-
 /* desktop */
 @media only screen and (min-width: 768px) {
-    .only-mobile {
-        display: none;
-    }
-
     header {
         margin: 26px var(--x-space);
     }
