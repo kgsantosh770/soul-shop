@@ -1,0 +1,19 @@
+.icon-wrapper {
+  position: relative;
+}
+
+.icon-wrapper .badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: var(--secondary-bg-color);
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  font-size: var(--font-xs);
+  font-weight: var(--font-bold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
