@@ -1,0 +1,127 @@
+header,
+header .right-icons {
+    display: flex;
+    align-items: center;
+}
+
+header {
+    margin: 48px var(--x-space);
+    justify-content: space-between;
+}
+
+header .right-icons{
+    gap: 30px;
+}
+
+header .nav-links .active{
+    font-weight: var(--font-bolder);
+}
+
+header .side-nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: calc(100% - 49px);
+    width: 100%;
+    padding: 50px 0px 0px;
+    background: var(--bg-color);
+    z-index: 2;
+    transform: translateX(100%);
+    transition: .5s all ease-in-out;
+    text-align: center;
+}
+
+header .side-nav.open{
+    transform: translateX(0%);
+}
+
+header .side-nav .close-btn{
+    position: absolute;
+    top: 50px;
+    right: 30px;
+}
+
+header .side-nav .nav-links{
+    margin-top: 76px;
+}
+
+header .side-nav .nav-links a{
+    display: block;
+    font-size: var(--font-xxl);
+    margin-top: 26px;
+}
+
+header .social-box{
+    max-width: 60%;
+    margin: 46px auto;
+}
+
+header .nav-footer{
+    position: absolute;
+    bottom: 30px;
+    left: 26px;
+}
+
+header .nav-footer p{
+    font-size: var(--font-medium);
+    text-align: left;
+}
+
+header .nav-footer img.app-store{
+    width: 100%;
+    height: 100%;
+    margin: 10px 0px;
+}
+
+header .nav-footer img.app-store:first-of-type{
+    margin-top: 20px;
+}
+
+header .nav-footer img.app-store:last-of-type{
+    margin-bottom: 20px;
+}
+
+header .nav-footer .trademark{
+    margin-top: 16px;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 767px) {
+    .only-desktop {
+        display: none;
+    }
+}
+
+/* desktop */
+@media only screen and (min-width: 768px) {
+    .only-mobile {
+        display: none;
+    }
+
+    header {
+        margin: 26px var(--x-space);
+    }
+
+    header .nav-links li{
+        display: inline;
+        margin-left: 42px;
+    }
+
+    header .nav-links .active{
+        position: relative;
+        display: inline-block;
+    }
+
+    header .nav-links a::before{
+        content: '';
+        position: absolute;
+        width: 0px;
+        bottom: -4px;
+        height: 0.25px;
+        background-color: var(--border-color);
+        transition: all 0.3s ease-in-out;
+    }
+
+    header .nav-links a.active::before{
+        width: 100%;
+    }
+}

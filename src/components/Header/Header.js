@@ -1,0 +1,92 @@
+import { useState } from 'react';
+import { NavLink } from 'react-router-dom';
+import { DESKTOP_MIN_WIDTH } from '../../utils/constants';
+import LogoDesktop from '../../assets/images/logos/logo-desktop.svg';
+import LogoMobile from '../../assets/images/logos/logo-mobile.svg';
+import CartIcon from '../../assets/images/icons/cart.svg';
+import MenuIcon from '../../assets/images/icons/hamburger-menu.svg';
+import LogoMobileLarge from '../../assets/images/logos/logo-mobile-large.svg';
+import CloseIcon from '../../assets/images/icons/close.svg';
+import PlayStoreImage from '../../assets/images/icons/google-play.svg';
+import AppStoreImage from '../../assets/images/icons/app-store.svg';
+import './Header.css';
+import IconBadge from '../IconBadge/IconBadge';
+import SocialBox from '../SocialBox/SocialBox';
+
+const Header = () => {
+  const cartItemCount = 100;
+  const [isMobileMenuOpen, setisMobileMenuOpen] = useState(false);
+  const navlinks = [
+    { name: 'Characters', route: '/' },
+    { name: 'About Us', route: '/about' },
+    { name: 'Contact', route: '/contact' }
+  ];
+  const navLinkElements = (
+    <ul className='nav-links'>
+      {
+        navlinks.map(
+          (link, index) =>
+            <li key={index}>
+              <NavLink
+                exact="true"
+                className={({ isActive, isPending }) =>
+                  isActive
+                    ? "active"
+                    : isPending
+                      ? "pending"
+                      : ""
+                }
+                to={link.route}>
+                {link.name}
+              </NavLink>
+            </li>
+        )
+      }
+    </ul>
+  )
+
+  return (
+    <header>
+      <button>
+        <picture>
+          <source srcSet={LogoDesktop} media={`min-width: ${DESKTOP_MIN_WIDTH}px`} />
+          <img alt='logo' title="Soul Shop" src={LogoMobile} />
+        </picture>
+      </button>
+
+      <div className='only-desktop'>
+        {navLinkElements}
+      </div>
+
+      <div className='right-icons'>
+        <button>
+          <IconBadge badgeCount={cartItemCount}>
+            <img className='icon' alt='Cart' title='Cart' src={CartIcon} />
+          </IconBadge>
+        </button>
+        <button onClick={() => { setisMobileMenuOpen(true) }}>
+          <img className='only-mobile icon icon-large' alt='Menu' title='Menu' src={MenuIcon} />
+        </button>
+      </div>
+
+      <div className={`only-mobile side-nav ${isMobileMenuOpen ? 'open' : ''}`}>
+        <button className='close-btn' onClick={() => { setisMobileMenuOpen(false) }}>
+          <img className='icon icon-large' alt='close' title='close' src={CloseIcon} />
+        </button>
+        <img alt='logo' title='logo' src={LogoMobileLarge} />
+        {navLinkElements}
+        <SocialBox className='divider-top' />
+        <div className='nav-footer'>
+          <p>Download</p>
+          <img className='app-store' alt='playstore' title='playstore' src={PlayStoreImage} />
+          <img className='app-store' alt='appstore' title='appstore' src={AppStoreImage} />
+          <p>Lorem ipsum dolor</p>
+          <p>sit amet, consectetur.</p>
+          <p className='trademark'>© Soul-Shop,inc 2024</p>
+        </div>
+      </div>
+    </header>
+  )
+}
+
+export default Header
