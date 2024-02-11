@@ -64,8 +64,8 @@ const Header = () => {
             <img className='icon' alt='Cart' title='Cart' src={CartIcon} />
           </IconBadge>
         </button>
-        <button onClick={() => { setisMobileMenuOpen(true) }}>
-          <img className='only-mobile icon icon-large' alt='Menu' title='Menu' src={MenuIcon} />
+        <button className='only-mobile' onClick={() => { setisMobileMenuOpen(true) }}>
+          <img className='icon icon-large' alt='Menu' title='Menu' src={MenuIcon} />
         </button>
       </div>
 
