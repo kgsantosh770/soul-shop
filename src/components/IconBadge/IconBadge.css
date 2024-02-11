@@ -12,7 +12,7 @@
   height: 20px;
   text-align: center;
   font-size: var(--font-xs);
-  font-weight: var(--font-bold);
+  font-family: var(--font-family-medium);
   display: flex;
   align-items: center;
   justify-content: center;

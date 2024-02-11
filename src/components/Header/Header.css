@@ -15,7 +15,7 @@ header .right-icons{
 }
 
 header .nav-links .active{
-    font-weight: var(--font-bolder);
+    font-family: var(--font-family-medium);
 }
 
 header .side-nav{
