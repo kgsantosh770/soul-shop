@@ -1,0 +1,3 @@
+const DESKTOP_MIN_WIDTH = 768;
+
+export { DESKTOP_MIN_WIDTH }
