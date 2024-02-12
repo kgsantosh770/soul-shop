@@ -10,6 +10,11 @@ import Person5Image from '../assets/images/illustrations/person-5.png';
 import Person5NameImage from '../assets/images/illustrations/person-5-withbgname.png';
 import Person6Image from '../assets/images/illustrations/person-6.png';
 import Person6NameImage from '../assets/images/illustrations/person-6-withbgname.png';
+import Brand1Image from '../assets/images/illustrations/brand-1.png';
+import Brand2Image from '../assets/images/illustrations/brand-2.png';
+import Brand3Image from '../assets/images/illustrations/brand-3.png';
+import Brand4Image from '../assets/images/illustrations/brand-4.png';
+import Brand5Image from '../assets/images/illustrations/brand-5.png';
 
 const DESKTOP_MIN_WIDTH = 768;
 const TOTAL_RATING = 5;
@@ -112,4 +117,32 @@ const characters = [
     },
 ]
 
-export { DESKTOP_MIN_WIDTH, TOTAL_RATING, characters}
+const brands = [
+    {
+        id: 1,
+        name: 'Liva',
+        image: Brand1Image,
+    },
+    {
+        id: 2,
+        name: 'Ztos',
+        image: Brand2Image,
+    },
+    {
+        id: 3,
+        name: 'FoxHub',
+        image: Brand3Image,
+    },
+    {
+        id: 4,
+        name: 'muzica',
+        image: Brand4Image,
+    },
+    {
+        id: 5,
+        name: 'Velocity',
+        image: Brand5Image,
+    },
+]
+
+export { DESKTOP_MIN_WIDTH, TOTAL_RATING, characters, brands}

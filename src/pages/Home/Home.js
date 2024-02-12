@@ -1,9 +1,10 @@
 import AiSoulGroupMobileImage from '../../assets/images/illustrations/group-mobile.png';
 import AiSoulGroupImage from '../../assets/images/illustrations/group.png';
 import CardGroup from '../../components/CardGroup/CardGroup';
-import { characters } from '../../utils/constants';
+import { brands, characters } from '../../utils/constants';
 import Image from '../../components/Image/Image';
 import './Home.css';
+import BrandBox from '../../components/BrandBox/BrandBox';
 
 const Home = () => {
     return (
@@ -28,6 +29,7 @@ const Home = () => {
                 filters={['Popular', 'Low Price', 'Most viewed']}
                 cards={characters}
             />
+            <BrandBox boxtitle="TRUSTED 10,000+ COMPANY" brands={brands} />
         </section>
     )
 }
