@@ -1,0 +1,48 @@
+.cards-container {
+    margin: 80px var(--x-space);
+}
+
+.cards-container .cards-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cards-container .filters {
+    height: 100%;
+    background-color: transparent;
+    color: var(--secondary-bg-color);
+    border: none;
+}
+
+.cards-container .filters option {
+    background-color: var(--theme-bg-color);
+}
+
+.cards-container .heading {
+    font-family: var(--font-family-semibold);
+    font-size: var(--font-large);
+    margin: 0px 0px 32px;
+}
+
+.cards-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+}
+
+.cards-wrapper .single {
+    grid-template-columns: 1fr;
+}
+
+@media only screen and (min-width: 768px) {
+    .cards-wrapper {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 54px;
+    }
+
+    .cards-wrapper .front-face,
+    .cards-wrapper .back-face {
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+}

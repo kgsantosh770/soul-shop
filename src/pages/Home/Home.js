@@ -1,5 +1,7 @@
 import AiSoulGroupMobileImage from '../../assets/images/illustrations/group-mobile.png';
 import AiSoulGroupImage from '../../assets/images/illustrations/group.png';
+import CardGroup from '../../components/CardGroup/CardGroup';
+import { characters } from '../../utils/constants';
 import Image from '../../components/Image/Image';
 import './Home.css';
 
@@ -21,6 +23,11 @@ const Home = () => {
             <p className='sub-banner-text'>
                 Find your perfect virtual partner or friend through our innovative platform. Experience meaningful connections with AI-powered personalities. Explore the world of Soulmate AI today.
             </p>
+            <CardGroup
+                groupTitle='Characters'
+                filters={['Popular', 'Low Price', 'Most viewed']}
+                cards={characters}
+            />
         </section>
     )
 }

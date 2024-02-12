@@ -1,0 +1,64 @@
+.card .card-img-wrapper {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.card .card-img {
+    width: 100%;
+}
+
+.card:not(.bordered) .card-img {
+    border-radius: 18px;
+}
+
+.card .back {
+    display: none;
+}
+
+@media only screen and (min-width: 768px) {
+
+    .card .front,
+    .card .back,
+    .card:hover .front,
+    .card:hover .back {
+        transition: transform .5s cubic-bezier(0.4, 0.2, 0.2, 1);
+        transform-style: preserve-3d;
+        backface-visibility: hidden;
+    }
+
+    .card:hover .back {
+        transform: rotateY(0deg);
+    }
+
+    .card:hover .front {
+        transform: rotateY(-180deg);
+    }
+
+    .card .back {
+        display: block;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        transform: rotateY(180deg);
+    }
+
+    .card .front {
+        transform: rotateY(0deg);
+    }
+
+    .card .back::before {
+        position: absolute;
+        width: calc(100% + 30px);
+        height: calc(100% + 30px);
+        left: -15px;
+        top: -15px;
+        background: linear-gradient(to bottom, #9d67ba, #ba8bd3, #d0abe4, #a9ccf6, #c8e8ff);
+        z-index: -1;
+        filter: blur(15px);
+    }
+
+    .card:hover .back::before {
+        content: '';
+    }
+
+}
