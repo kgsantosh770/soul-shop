@@ -29,6 +29,7 @@ const CardGroup = ({ groupTitle, filters, cards, singleColumn }) => {
                             <Card
                                 key={character.id}
                                 id={character.id}
+                                name={character.name}
                                 image={character.image}
                                 backImage={character.imageWithName}
                             />
