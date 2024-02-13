@@ -9,22 +9,24 @@ import BrandBox from '../../components/BrandBox/BrandBox';
 import Button from '../../components/Button/Button';
 import Input from '../../components/Input/Input';
 import InputGroup from '../../components/InputGroup/InputGroup';
+import Banner from '../../components/Banner/Banner';
 
 const Home = () => {
     return (
         <section className='homepage'>
-            <div className="banner-text">
-                <p>Discover AI - Generated</p>
-                <p className="highlight">Characters for Virtual</p>
-                <p>Companionship and Friendship</p>
-            </div>
-            <Image
-                className="banner-img"
-                image={AiSoulGroupMobileImage}
-                desktopImage={AiSoulGroupImage}
-                alt="ai-characters-group"
-                title="AI Soul Group"
-            />
+            <Banner
+                beforeHighlightText="Discover AI - Generated"
+                highlightText="Characters for Virtual"
+                afterHighlightText="Companionship and Friendship"
+            >
+                <Image
+                    className="banner-img"
+                    image={AiSoulGroupMobileImage}
+                    desktopImage={AiSoulGroupImage}
+                    alt="ai-characters-group"
+                    title="AI Soul Group"
+                />
+            </Banner>
             <p className='sub-banner-text'>
                 Find your perfect virtual partner or friend through our innovative platform. Experience meaningful connections with AI-powered personalities. Explore the world of Soulmate AI today.
             </p>

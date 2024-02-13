@@ -2,21 +2,6 @@
     margin: 70px 0px;
 }
 
-.homepage .banner-text {
-    text-align: center;
-}
-
-.homepage .banner-text p {
-    font-family: var(--font-family-semibold);
-    font-size: var(--font-large);
-    line-height: 1.3;
-}
-
-.homepage .banner-text .highlight {
-    font-size: var(--font-xxl);
-    color: var(--text-theme-color);
-}
-
 .homepage .banner-img {
     width: 100%;
     margin: 10px 0px 30px;
@@ -52,14 +37,6 @@
 @media only screen and (min-width: 768px) {
     .homepage {
         margin-top: 100px;
-    }
-
-    .homepage .banner-text p {
-        font-size: var(--font-xxl);
-    }
-
-    .homepage .banner-text .highlight {
-        font-size: var(--font-xxxl);
     }
 
     .homepage .sub-banner-text {
