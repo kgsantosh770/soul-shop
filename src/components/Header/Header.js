@@ -17,7 +17,7 @@ const Header = () => {
   const cartItemCount = 100;
   const [isMobileMenuOpen, setisMobileMenuOpen] = useState(false);
   const navlinks = [
-    { name: 'Characters', route: '/' },
+    { name: 'Characters', route: '/characters' },
     { name: 'About Us', route: '/about' },
     { name: 'Contact', route: '/contact' }
   ];
