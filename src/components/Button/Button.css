@@ -1,0 +1,12 @@
+.custom-btn{
+    border: 1.5px solid var(--secondary-bg-color);
+    padding: 18px 32px;
+    color: var(--secondary-bg-color);
+    border-radius: 32px;
+    font-family: var(--font-family-medium);
+    word-spacing: 2px;
+}
+
+.custom-btn.large-font{
+    font-size: var(--font-large);
+}
