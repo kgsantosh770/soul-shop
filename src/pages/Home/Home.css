@@ -27,6 +27,28 @@
     margin: 10px 28px 30px;
 }
 
+.homepage .try-section,
+.homepage .subscription {
+    font-size: var(--font-xxl);
+    text-align: center;
+    max-width: 80%;
+    margin: 0px auto;
+}
+
+.homepage .subscription{
+    font-size: var(--font-medium);
+}
+
+.homepage .try-section .highlight,
+.homepage .subscription .highlight {
+    color: var(--text-theme-color);
+    font-family: var(--font-family-semibold);
+}
+
+.homepage .try-now-btn {
+    margin: 50px 0px;
+}
+
 @media only screen and (min-width: 768px) {
     .homepage {
         margin-top: 100px;
@@ -48,5 +70,19 @@
 
     .homepage .banner-img {
         width: 100%;
+    }
+
+    .homepage .try-section{
+        margin-top: 130px;
+    }
+
+    .homepage .try-section img{
+        width: 60%;
+    }
+
+    .homepage .subscription > p{
+        font-size: var(--font-large);
+        max-width: 400px;
+        margin: 0 auto;
     }
 }
