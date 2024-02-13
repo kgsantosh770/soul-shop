@@ -32,6 +32,10 @@
 
 /* desktop */
 @media only screen and (min-width: 768px) {
+    .brand-box {
+        margin-top: 130px;
+    }
+
     .brand-box .title {
         font-size: var(--font-xxl);
     }
