@@ -1,0 +1,25 @@
+.banner-text {
+    text-align: center;
+}
+
+.banner-text p {
+    font-family: var(--font-family-semibold);
+    font-size: var(--font-large);
+    line-height: 1.3;
+}
+
+.banner-text .highlight {
+    font-size: var(--font-xxl);
+    color: var(--text-theme-color);
+}
+
+@media only screen and (min-width: 768px) {
+
+    .banner-text p {
+        font-size: var(--font-xxl);
+    }
+
+    .banner-text .highlight {
+        font-size: var(--font-xxxl);
+    }
+}
