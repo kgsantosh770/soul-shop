@@ -32,7 +32,6 @@ const Card = ({ id, image, name, price, rating, totalRating, backImage }) => {
                         </div>
                     }
                 </div>
-                {name && <p>{name}</p>}
                 {price &&
                     <p>
                         <span className="highlight">Base Price</span>
