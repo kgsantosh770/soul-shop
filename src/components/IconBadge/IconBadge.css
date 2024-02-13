@@ -6,13 +6,14 @@
   position: absolute;
   top: -8px;
   right: -8px;
-  background: var(--secondary-bg-color);
+  background: var(--error-color);
+  color: var(--secondary-bg-color);
   border-radius: 50%;
   width: 20px;
   height: 20px;
   text-align: center;
   font-size: var(--font-xs);
-  font-family: var(--font-family-medium);
+  font-family: var(--font-family-semibold);
   display: flex;
   align-items: center;
   justify-content: center;
