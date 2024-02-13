@@ -26,6 +26,7 @@ const characters = [
         name: 'Allie',
         price: 235.99,
         rating: 3,
+        tags: ['popular','mostview']
     },
     {
         id: 2,
@@ -34,6 +35,7 @@ const characters = [
         name: 'Ryan',
         price: 235.99,
         rating: 3,
+        tags: ['popular']
     },
     {
         id: 3,
@@ -42,6 +44,7 @@ const characters = [
         name: 'Jossie',
         price: 235.99,
         rating: 3,
+        tags: ['mostview']
     },
     {
         id: 4,
@@ -50,6 +53,7 @@ const characters = [
         name: 'Josnua',
         price: 235.99,
         rating: 3,
+        tags: ['popular']
     },
     {
         id: 5,
@@ -58,6 +62,7 @@ const characters = [
         name: 'Nichole',
         price: 235.99,
         rating: 3,
+        tags: ['mostview']
     },
     {
         id: 6,
@@ -66,6 +71,7 @@ const characters = [
         name: 'Nichole',
         price: 235.99,
         rating: 3,
+        tags: ['mostview']
     },
     {
         id: 7,
@@ -74,6 +80,7 @@ const characters = [
         name: 'Allie',
         price: 235.99,
         rating: 3,
+        tags: ['popular','mostview']
     },
     {
         id: 8,
@@ -82,6 +89,7 @@ const characters = [
         name: 'Ryan',
         price: 235.99,
         rating: 3,
+        tags: ['popular','mostview']
     },
     {
         id: 9,
@@ -90,6 +98,7 @@ const characters = [
         name: 'Jossie',
         price: 235.99,
         rating: 3,
+        tags: ['popular']
     },
     {
         id: 10,
@@ -98,6 +107,7 @@ const characters = [
         name: 'Josnua',
         price: 235.99,
         rating: 3,
+        tags: ['popular', 'mostview']
     },
     {
         id: 11,
@@ -106,6 +116,7 @@ const characters = [
         name: 'Nichole',
         price: 235.99,
         rating: 3,
+        tags: ['mostview']
     },
     {
         id: 12,
@@ -114,6 +125,7 @@ const characters = [
         name: 'Nichole',
         price: 235.99,
         rating: 3,
+        tags: ['popular']
     },
 ]
 
@@ -145,4 +157,12 @@ const brands = [
     },
 ]
 
-export { DESKTOP_MIN_WIDTH, TOTAL_RATING, characters, brands}
+const mostViewCharacters = characters.filter(
+    character => character.tags.includes('mostview')
+)
+
+const popularCharacters = characters.filter(
+    character => character.tags.includes('popular')
+)
+
+export { DESKTOP_MIN_WIDTH, TOTAL_RATING, characters, brands, mostViewCharacters, popularCharacters}
