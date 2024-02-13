@@ -2,7 +2,7 @@ import AiSoulGroupMobileImage from '../../assets/images/illustrations/group-mobi
 import AiSoulGroupImage from '../../assets/images/illustrations/group.png';
 import SoulInMobileImage from '../../assets/images/illustrations/smartphone-character.png';
 import CardGroup from '../../components/CardGroup/CardGroup';
-import { brands, characters } from '../../utils/constants';
+import { brands, popularCharacters as characters } from '../../utils/constants';
 import Image from '../../components/Image/Image';
 import './Home.css';
 import BrandBox from '../../components/BrandBox/BrandBox';
@@ -29,8 +29,7 @@ const Home = () => {
                 Find your perfect virtual partner or friend through our innovative platform. Experience meaningful connections with AI-powered personalities. Explore the world of Soulmate AI today.
             </p>
             <CardGroup
-                groupTitle='Characters'
-                filters={['Popular', 'Low Price', 'Most viewed']}
+                groupTitle='Popular Characters'
                 cards={characters}
             />
             <BrandBox boxtitle="TRUSTED 10,000+ COMPANY" brands={brands} />
