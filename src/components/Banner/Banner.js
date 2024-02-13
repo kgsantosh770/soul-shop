@@ -1,4 +1,3 @@
-import Image from '../Image/Image';
 import './Banner.css';
 
 const Banner = ({ beforeHighlightText, highlightText, afterHighlightText, children }) => {
