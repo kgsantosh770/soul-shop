@@ -1,8 +1,12 @@
 import './Button.css';
 
-const Button = ({ btnText, handleClick, image, imageTitle, filled = false, largeFont = true }) => {
+const Button = ({ btnText, handleClick, image, imageTitle, largeFont = true, style }) => {
     return (
-        <button onClick={handleClick} className={`custom-btn btn ${filled ? 'filled' : ''} ${largeFont ? 'large-font': ''}`}>
+        <button
+            onClick={handleClick}
+            className={`custom-btn btn ${largeFont ? 'large-font' : ''}`}
+            style={style ? style : {}}
+        >
             {btnText && <span>{btnText}</span>}
             {image &&
                 <img
