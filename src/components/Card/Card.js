@@ -49,7 +49,7 @@ const Card = ({ id, showOptions, character }) => {
                 showOptions && character.price &&
                 <div className='btns'>
                     <Button btnText='View Profile' image={ArrowRightIcon} imageTitle='View Profile' route={'/character'}/>
-                    <Button btnText='Add to cart' image={CartIcon} imageTitle='Cart' route={'/cart'}/>
+                    <Button btnText='Add to cart' image={CartIcon} imageTitle='Cart'/>
                 </div>
             }
         </div>
