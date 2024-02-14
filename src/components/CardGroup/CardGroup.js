@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Card from '../../components/Card/Card';
 import './CardGroup.css';
 
-const CardGroup = ({ groupTitle, filters, cards, singleColumn }) => {
+const CardGroup = ({ groupTitle, filters, cards, singleColumn, showOptions }) => {
     const [characters, setCharacters] = useState(cards ? cards : []);
 
     const handleChange = (e) => {
@@ -40,9 +40,8 @@ const CardGroup = ({ groupTitle, filters, cards, singleColumn }) => {
                             <Card
                                 key={character.id}
                                 id={character.id}
-                                name={character.name}
-                                image={character.image}
-                                backImage={character.imageWithName}
+                                character={character}
+                                showOptions={showOptions}
                             />
                     )
                 }

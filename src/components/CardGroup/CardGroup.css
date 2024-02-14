@@ -30,7 +30,7 @@
     gap: 28px;
 }
 
-.cards-wrapper .single {
+.cards-wrapper.single {
     grid-template-columns: 1fr;
 }
 
@@ -44,5 +44,9 @@
     .cards-wrapper .back-face {
         -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
+    }
+
+    .cards-wrapper.single {
+        grid-template-columns: repeat(3, 1fr);
     }
 }
