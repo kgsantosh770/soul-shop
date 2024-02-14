@@ -1,18 +1,26 @@
 import { characters } from "../../utils/constants";
 import CardGroup from "../../components/CardGroup/CardGroup";
+import Banner from "../../components/Banner/Banner";
 
 const Categories = () => {
     return (
         <>
-            <div className="banner-text" style={{marginTop: '110px'}}>
-                <p>Discover AI - Generated</p>
-                <p className="highlight">Characters for Virtual</p>
-                <p>Companionship and Friendship</p>
-            </div>
+            <Banner
+                beforeHighlightText="Discover AI - Generated"
+                highlightText="Characters for Virtual"
+                afterHighlightText="Companionship and Friendship"
+                style={{marginTop: '90px'}}
+            />
             <CardGroup
                 groupTitle='Characters'
                 cards={characters}
                 filters={['Popular', 'Most view']}
+                showOptions={true}
+                singleColumn={true}
+            />
+            <Banner
+                beforeHighlightText="More Characters"
+                highlightText="Coming Soon ..."
             />
         </>
     )
