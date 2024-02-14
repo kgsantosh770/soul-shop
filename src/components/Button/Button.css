@@ -1,4 +1,4 @@
-.custom-btn{
+.custom-btn {
     border: 1.5px solid var(--secondary-bg-color);
     padding: 18px 32px;
     color: var(--secondary-bg-color);
@@ -7,6 +7,16 @@
     word-spacing: 2px;
 }
 
-.custom-btn.large-font{
+.custom-btn .btn-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.custom-btn.large-font {
     font-size: var(--font-large);
+}
+
+.custom-btn img {
+    margin-left: 5px;
 }
