@@ -14,7 +14,7 @@ const Card = ({ id, showOptions, character }) => {
             const ratedElement = i <= rating ? true : false;
             const altText = ratedElement ? 'star' : 'no-star';
             const imgSource = ratedElement ? StarFilledIcon : StarIcon;
-            const element = <img alt={altText} src={imgSource} width={16} height={16} />
+            const element = <img key={i} alt={altText} src={imgSource} width={16} height={16} />
             elements.push(element);
         }
         return elements;
@@ -48,8 +48,21 @@ const Card = ({ id, showOptions, character }) => {
             {
                 showOptions && character.price &&
                 <div className='btns'>
-                    <Button btnText='View Profile' image={ArrowRightIcon} imageTitle='View Profile' route={'/character'}/>
-                    <Button btnText='Add to cart' image={CartIcon} imageTitle='Cart'/>
+                    <Button
+                        btnText='View Profile'
+                        image={ArrowRightIcon}
+                        imageTitle='View Profile'
+                        route={'/character'}
+                    />
+                    <Button
+                        btnText='Add to cart'
+                        image={CartIcon}
+                        imageTitle='Cart'
+                        style={{ 
+                            backgroundColor: '#73788DA6',
+                            borderColor: '#73788DA6'
+                         }}
+                    />
                 </div>
             }
         </div>
