@@ -52,7 +52,7 @@
 .card .btn {
     width: auto;
     padding: 16px;
-    font-size: var(--font-small);
+    font-size: var(--font-xs);
 }
 
 @media only screen and (min-width: 768px) {
@@ -107,7 +107,11 @@
     }
 
     .card .btn {
-        padding: 16px 20px;
+        padding: 16px 12px;
+    }
+
+    .card.show-options {
+        padding: 26px 20px;
     }
 
 }
