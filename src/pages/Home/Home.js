@@ -54,7 +54,6 @@ const Home = () => {
                     <Input type='email' placeholder='Enter your email address' />
                     <Button
                         btnText="Subscribe right now"
-                        largeFont={false}
                         style={{
                             backgroundColor: '#CDD4F0',
                             color: '#000',
