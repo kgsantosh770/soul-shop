@@ -20,3 +20,9 @@
 .custom-btn img {
     margin-left: 5px;
 }
+
+@media only screen and (min-width: 768px) {
+    .custom-btn:hover{
+        transform: translate3d(0.5px,-0.5px,1px);
+    }
+}
