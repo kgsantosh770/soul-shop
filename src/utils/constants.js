@@ -21,6 +21,10 @@ import Brand2Image from '../assets/images/illustrations/brand-2.png';
 import Brand3Image from '../assets/images/illustrations/brand-3.png';
 import Brand4Image from '../assets/images/illustrations/brand-4.png';
 import Brand5Image from '../assets/images/illustrations/brand-5.png';
+import VisaIcon from '../assets/images/icons/visa.png';
+import MastercardIcon from '../assets/images/icons/mastercard.png';
+import ApplePayIcon from '../assets/images/icons/applepay.png';
+import PaypalIcon from '../assets/images/icons/paypal.png';
 
 const DESKTOP_MIN_WIDTH = 768;
 const TOTAL_RATING = 5;
@@ -37,7 +41,7 @@ const characters = [
         rating: 3,
         period: 'month',
         features: ['Financial Expert', 'Sports Person', 'Psychologist'],
-        tags: ['popular','mostview']
+        tags: ['popular', 'mostview']
     },
     {
         id: 2,
@@ -115,7 +119,7 @@ const characters = [
         rating: 3,
         period: 'month',
         features: ['Financial Expert', 'Sports Person', 'Psychologist'],
-        tags: ['popular','mostview']
+        tags: ['popular', 'mostview']
     },
     {
         id: 8,
@@ -220,4 +224,53 @@ const popularCharacters = characters.filter(
     character => character.tags.includes('popular')
 )
 
-export { DESKTOP_MIN_WIDTH, TOTAL_RATING, characters, brands, mostViewCharacters, popularCharacters, TAX}
+const PAYMENT_OPTIONS = [
+    {
+        name: 'Credit Card',
+        desc: 'Unlimited users and unlimited individual data.',
+        acceptedMethods: [
+            {
+                name: 'Visa',
+                image: VisaIcon,
+            },
+            {
+                name: 'Mastercard',
+                image: MastercardIcon,
+            }
+        ]
+
+    },
+    {
+        name: 'Apple Pay',
+        desc: 'Unlimited users and unlimited individual data.',
+        acceptedMethods: [
+            {
+                name: 'Apple Pay',
+                image: ApplePayIcon,
+            }
+        ]
+
+    },
+    {
+        name: 'Paypal',
+        desc: 'Unlimited users and unlimited individual data.',
+        acceptedMethods: [
+            {
+                name: 'Paypal',
+                image: PaypalIcon,
+            }
+        ]
+
+    }
+]
+
+export {
+    DESKTOP_MIN_WIDTH,
+    TOTAL_RATING,
+    PAYMENT_OPTIONS,
+    characters,
+    brands,
+    mostViewCharacters,
+    popularCharacters,
+    TAX
+}
