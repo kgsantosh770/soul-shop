@@ -14,7 +14,7 @@ const Button = ({ btnText, handleClick, image, imageTitle, style, route, classNa
             }
         </div>
     )
-    const btnClassName = `custom-btn btn ${disabled ? 'disabled' : ''} ${className ? className : ''}`;
+    const btnClassName = `custom-btn btn ${disabled === true ? 'disabled' : ''} ${className ? className : ''}`;
 
     return route ?
         (
