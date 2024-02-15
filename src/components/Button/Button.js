@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import './Button.css';
 
-const Button = ({ btnText, handleClick, image, imageTitle, style, route }) => {
+const Button = ({ btnText, handleClick, image, imageTitle, style, route, className }) => {
     const buttonContent = (
         <div className='btn-content'>
             {btnText && <span>{btnText}</span>}
@@ -16,13 +16,13 @@ const Button = ({ btnText, handleClick, image, imageTitle, style, route }) => {
     )
     return route ?
         (
-            <Link className="custom-btn btn" to={route}>{buttonContent}</Link>
+            <Link className={`custom-btn btn ${className ? className : ''}`} to={route}>{buttonContent}</Link>
         ) :
 
         (
             <button
                 onClick={handleClick}
-                className="custom-btn btn"
+                className={`custom-btn btn ${className ? className : ''}`}
                 style={style ? style : {}}
             >
                 {buttonContent}
