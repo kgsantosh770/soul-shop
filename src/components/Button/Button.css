@@ -21,6 +21,12 @@
     margin-left: 5px;
 }
 
+.custom-btn.disabled{
+    opacity: 0.5;
+    pointer-events: none;
+    cursor: auto;
+}
+
 @media only screen and (min-width: 768px) {
     .custom-btn:hover{
         transform: translate3d(0.5px,-0.5px,1px);
