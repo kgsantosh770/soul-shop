@@ -24,6 +24,7 @@ import Brand5Image from '../assets/images/illustrations/brand-5.png';
 
 const DESKTOP_MIN_WIDTH = 768;
 const TOTAL_RATING = 5;
+const TAX = 70;
 const characters = [
     {
         id: 1,
@@ -219,4 +220,4 @@ const popularCharacters = characters.filter(
     character => character.tags.includes('popular')
 )
 
-export { DESKTOP_MIN_WIDTH, TOTAL_RATING, characters, brands, mostViewCharacters, popularCharacters}
+export { DESKTOP_MIN_WIDTH, TOTAL_RATING, characters, brands, mostViewCharacters, popularCharacters, TAX}
