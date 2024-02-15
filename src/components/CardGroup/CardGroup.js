@@ -15,7 +15,7 @@ const CardGroup = ({ groupTitle, filters, cards, singleColumn, showOptions }) =>
     }
 
     return (
-        <div className='cards-container'>
+        <div className='custom-cards-group'>
             {
                 (groupTitle || filters) &&
                 <div className='cards-header'>
