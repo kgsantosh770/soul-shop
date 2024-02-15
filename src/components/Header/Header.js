@@ -23,13 +23,15 @@ const Header = () => {
   ];
 
   const toggleSideMenu = () => {
-    if (typeof window != 'undefined' && window.document) {
-      if (document.body.style.overflow === 'hidden')
-        document.body.style.overflow = 'auto';
-      else
-        document.body.style.overflow = 'hidden';
+    if (window.screen.width < 768) {
+      if (typeof window != 'undefined' && window.document) {
+        if (document.body.style.overflow === 'hidden')
+          document.body.style.overflow = 'auto';
+        else
+          document.body.style.overflow = 'hidden';
+      }
+      setisMobileMenuOpen(prev => !prev);
     }
-    setisMobileMenuOpen(prev => !prev);
   }
 
 
