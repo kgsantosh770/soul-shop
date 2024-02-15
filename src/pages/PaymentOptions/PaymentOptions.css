@@ -1,0 +1,134 @@
+.pay-options-page {
+    margin: 0px var(--x-space);
+    max-width: 450px;
+}
+
+.pay-options-page .box-border {
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    padding: 16px 12px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.pay-options-page>.title {
+    font-family: var(--font-family-semibold);
+    font-size: var(--font-medium);
+    margin-bottom: 25px;
+}
+
+.pay-options-page .key-value .title {
+    font-size: var(--font-large);
+    font-family: var(--font-family-semibold);
+}
+
+.pay-options-page .key-value .subtitle {
+    font-size: var(--font-small);
+    margin-top: 5px;
+}
+
+.pay-options-page .key-value .value {
+    font-size: var(--font-xl);
+    font-family: var(--font-family-semibold);
+    color: var(--text-theme-color);
+}
+
+.pay-options-page .option-card {
+    position: relative;
+}
+
+.pay-options-page .option-card input {
+    margin-right: 8px;
+    visibility: hidden;
+    position: relative;
+}
+
+.pay-options-page .option-card input::before {
+    content: '';
+    background: url('../../assets/images/icons/radio-unchecked.svg') no-repeat;
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: -2px;
+    left: -1px;
+    visibility: visible;
+}
+
+.pay-options-page .option-card input:checked:before {
+    background: url('../../assets/images/icons/radio-checked.svg') no-repeat;
+}
+
+.pay-options-page label {
+    font-family: var(--font-family-semibold);
+    width: -webkit-fill-available;
+    height: -webkit-fill-available;
+    display: block;
+    position: absolute;
+    padding-top: 16px;
+    padding-left: 38px;
+    top: 0px;
+    left: 0px;
+}
+
+.pay-options-page .desc {
+    color: var(--muted-text-color);
+    font-size: var(--font-xs);
+    margin-top: 24px;
+}
+
+.pay-options-page .option-card .images {
+    text-align: right;
+    width: 40%;
+    display: block;
+}
+
+.pay-options-page .option-card .images img {
+    margin-right: 5px;
+    max-width: 36px;
+}
+
+.pay-options-page .checkout-nav-btns {
+    margin: 20px auto;
+    max-width: 500px;
+}
+
+.pay-options-page .security {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: var(--font-xs);
+    color: var(--muted-text-color);
+}
+
+@media only screen and (min-width: 768px) {
+    .pay-options-page {
+        margin: 20px auto;
+        max-width: 800px;
+    }
+
+    .pay-options-page label {
+        cursor: pointer;
+    }
+
+    .pay-options-page .title+div {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 30px;
+    }
+
+    .pay-options-page .security {
+        margin: 10px 0px 30px;
+        align-items: center;
+    }
+
+    .pay-options-page .key-value {
+        grid-column: 1 / -1;
+        align-items: center;
+    }
+
+    .pay-options-page .key-value .value {
+        font-size: var(--font-xxl);
+    }
+}
