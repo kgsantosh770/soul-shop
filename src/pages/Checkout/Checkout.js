@@ -5,21 +5,22 @@ import Image from '../../components/Image/Image';
 import { TAX, mostViewCharacters } from '../../utils/constants';
 import './Checkout.css';
 
-const NavigationButtons = ({ mobile }) => (
-  <div className={`checkout-nav-btns ${mobile ? 'only-mobile' : 'only-desktop'}`}>
+const NavigationButtons = ({ backRoute, nextRoute, mobile, desktop, disableBackButton }) => (
+  <div className={`checkout-nav-btns ${mobile ? 'only-mobile' : ''} ${desktop ? 'only-desktop' : ''}`}>
     <Button
       className='back-btn'
       btnText='Back'
       image={ArrowRightIcon}
       imageTitle={'back'}
-      disabled
+      disabled={disableBackButton ? true : false}
+      route={backRoute}
     />
     <Button
       className='next-btn'
       btnText='Next'
       image={ArrowRightIcon}
       imageTitle={'next'}
-      route={'/payment-options'}
+      route={nextRoute}
     />
   </div>
 )
@@ -92,10 +93,10 @@ const Checkout = () => {
             </div>
             <p className='value large-font'>₹ {subtotal + 70}</p>
           </div>
-          <NavigationButtons />
+          <NavigationButtons desktop disableBackButton nextRoute={'/payment-options'}/>
         </div>
       </div>
-      <NavigationButtons mobile />
+      <NavigationButtons mobile disableBackButton nextRoute={'/payment-options'}/>
     </div>
   )
 }

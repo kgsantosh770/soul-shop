@@ -5,16 +5,16 @@
     margin: 50px var(--x-space) 30px;
 }
 
-.checkout-page .back-btn,
-.checkout-page .next-btn {
-    padding: 16px 54px;
+.back-btn,
+.next-btn {
+    width: 100%;
 }
 
-.checkout-page .back-btn .btn-content {
+.back-btn .btn-content {
     flex-direction: row-reverse;
 }
 
-.checkout-page .back-btn img {
+.back-btn img {
     transform: rotate(180deg);
     margin: 0px 5px 0px 0px;
 }
@@ -84,6 +84,7 @@
 
 .checkout-page .card-img {
     border: 1.5px solid var(--border-color);
+    min-width: 142px;
 }
 
 .checkout-page .card .desc {
