@@ -1,5 +1,5 @@
 footer {
-    margin: 120px var(--x-space);
+    margin: 120px var(--x-space) 30px;
 }
 
 footer .footer-quote img,

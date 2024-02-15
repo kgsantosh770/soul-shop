@@ -15,21 +15,26 @@ header .right-icons{
 }
 
 header .nav-links .active{
-    font-family: var(--font-family-medium);
+    font-family: var(--font-family-bold);
 }
 
 header .side-nav{
     position: fixed;
     top: 0;
     left: 0;
-    height: calc(100% - 49px);
+    height: calc(100% - 40px);
     width: 100%;
-    padding: 50px 0px 0px;
+    padding-top: 40px;
     background: var(--bg-color);
     z-index: 2;
     transform: translateX(100%);
     transition: .5s all ease-in-out;
     text-align: center;
+}
+
+header .side-nav .inner-content{
+    overflow-y: auto;
+    height: 100%;
 }
 
 header .side-nav.open{
@@ -38,40 +43,45 @@ header .side-nav.open{
 
 header .side-nav .close-btn{
     position: absolute;
-    top: 50px;
-    right: 30px;
+    top: 40px;
+    right: 40px;
 }
 
 header .side-nav .nav-links{
-    margin-top: 76px;
+    margin: 52px auto 40px;
+    width: max-content;
 }
 
 header .side-nav .nav-links a{
     display: block;
-    font-size: var(--font-xxl);
-    margin-top: 26px;
+    font-size: var(--font-large);
+    margin-top: 22px;
 }
 
 header .social-box{
     max-width: 60%;
-    margin: 46px auto;
+    margin: 26px auto;
 }
 
 header .nav-footer{
-    position: absolute;
+    /* position: absolute;
     bottom: 30px;
-    left: 26px;
+    left: 26px; */
+    width: max-content;
+    margin: 40px 20px;
 }
 
 header .nav-footer p{
-    font-size: var(--font-medium);
     text-align: left;
+    font-size: var(--font-small);
 }
 
 header .nav-footer img.app-store{
     width: 100%;
     height: 100%;
+    max-width: 130px;
     margin: 10px 0px;
+    display: block;
 }
 
 header .nav-footer img.app-store:first-of-type{
