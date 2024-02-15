@@ -10,6 +10,7 @@ import Home from './pages/Home/Home';
 import Categories from './pages/Categories/Categories';
 import Character from './pages/Character/Character';
 import Checkout from './pages/Checkout/Checkout';
+import PaymentOptions from './pages/PaymentOptions/PaymentOptions';
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
       {
         path: '/checkout',
         element: <Checkout />
+      },
+      {
+        path: '/payment-options',
+        element: <PaymentOptions />
       }
     ]
   },
