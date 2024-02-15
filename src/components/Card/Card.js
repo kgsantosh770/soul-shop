@@ -52,7 +52,7 @@ const Card = ({ id, showOptions, character }) => {
                         btnText='View Profile'
                         image={ArrowRightIcon}
                         imageTitle='View Profile'
-                        route={'/character'}
+                        route={`/characters/${character.id}`}
                     />
                     <Button
                         btnText='Add to cart'
@@ -68,7 +68,7 @@ const Card = ({ id, showOptions, character }) => {
         </div>
     )
 
-    return showOptions ? cardElement : <Link to='/character'>{cardElement}</Link>;
+    return showOptions ? cardElement : <Link to={`/characters/${character.id}`}>{cardElement}</Link>;
 }
 
 export default Card
