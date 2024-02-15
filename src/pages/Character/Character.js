@@ -1,3 +1,4 @@
+import CartIcon from '../../assets/images/icons/cart.svg';
 import ArrowRightIcon from '../../assets/images/icons/arrow-right.svg';
 import Button from '../../components/Button/Button';
 import Image from '../../components/Image/Image';
@@ -40,7 +41,10 @@ const Character = () => {
                         </p>
                     </div>
                 }
-                <Button className='continue-btn' btnText='Continue' image={ArrowRightIcon} imageTitle='right-arrow' />
+                <div className='btns'>
+                    <Button className='continue-btn' btnText='Buy Now' image={ArrowRightIcon} imageTitle='right-arrow' />
+                    <Button className='cart-btn' btnText='Add to Cart' image={CartIcon} imageTitle='cart' />
+                </div>
             </div>
             {
                 character.imageWithBg &&

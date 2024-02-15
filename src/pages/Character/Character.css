@@ -59,10 +59,17 @@
 
 .character-page .char-img {
     margin-top: 30px;
+    width: 100%;
 }
 
-.character-page img {
-    width: 100%;
+.character-page .btns {
+    display: flex;
+    gap: 16px;
+}
+
+.character-page .cart-btn,
+.character-page .continue-btn {
+    padding: 18px 28px;
 }
 
 @media only screen and (min-width: 768px) {
@@ -104,5 +111,9 @@
         right: 0px;
         left: unset;
         width: 100%;
+    }
+
+    .character-page .btns {
+        justify-content: flex-end;
     }
 }
