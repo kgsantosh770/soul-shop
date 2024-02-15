@@ -1,14 +1,15 @@
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
-import { Outlet } from "react-router-dom";
+import { Outlet, ScrollRestoration } from "react-router-dom";
 import './App.css';
 
 function App() {
   return (
     <div className="app">
-        <Header />
-        <Outlet />
-        <Footer />
+      <ScrollRestoration />
+      <Header />
+      <Outlet />
+      <Footer />
     </div>
   );
 }
