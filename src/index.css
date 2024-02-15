@@ -77,7 +77,7 @@ button {
 /* desktop */
 @media only screen and (min-width: 768px) {
   .only-mobile {
-    display: none;
+    display: none !important;
   }
 
   a,
@@ -94,6 +94,6 @@ button {
   }
 
   .only-desktop {
-    display: none;
+    display: none !important;
   }
 }

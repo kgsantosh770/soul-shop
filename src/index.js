@@ -9,6 +9,7 @@ import {
 import Home from './pages/Home/Home';
 import Categories from './pages/Categories/Categories';
 import Character from './pages/Character/Character';
+import Checkout from './pages/Checkout/Checkout';
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
       {
         path: '/characters/:id',
         element: <Character />
+      },
+      {
+        path: '/checkout',
+        element: <Checkout />
       }
     ]
   },
