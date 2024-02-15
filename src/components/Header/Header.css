@@ -5,8 +5,12 @@ header .right-icons {
 }
 
 header {
-    margin: 48px var(--x-space);
+    padding: 30px var(--x-space);
     justify-content: space-between;
+    position: sticky;
+    top: 0px;
+    background-color: var(--dark-bg-color);
+    z-index: 10;
 }
 
 header .right-icons{
@@ -99,7 +103,7 @@ header .nav-footer .trademark{
 /* desktop */
 @media only screen and (min-width: 768px) {
     header {
-        margin: 26px var(--x-space);
+        padding: 26px var(--x-space);
     }
 
     header .nav-links li{

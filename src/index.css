@@ -2,6 +2,7 @@
 
 :root {
   --bg-color: radial-gradient(#19213D, #1A0E22 80%, #0A0D17 100%);
+  --dark-bg-color: #1A0E22;
   --theme-bg-color: #19213D;
   --secondary-bg-color: #ffffff;
   --error-color: #ff0f0f;
