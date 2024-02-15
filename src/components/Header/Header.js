@@ -21,6 +21,18 @@ const Header = () => {
     { name: 'About Us', route: '/about' },
     { name: 'Contact', route: '/contact' }
   ];
+
+  const toggleSideMenu = () => {
+    if (typeof window != 'undefined' && window.document) {
+      if (document.body.style.overflow === 'hidden')
+        document.body.style.overflow = 'auto';
+      else
+        document.body.style.overflow = 'hidden';
+    }
+    setisMobileMenuOpen(prev => !prev);
+  }
+
+
   const navLinkElements = (
     <ul className='nav-links'>
       {
@@ -36,6 +48,7 @@ const Header = () => {
                       ? "pending"
                       : ""
                 }
+                onClick={toggleSideMenu}
                 to={link.route}>
                 {link.name}
               </NavLink>
@@ -44,16 +57,6 @@ const Header = () => {
       }
     </ul>
   )
-
-  const toggleSideMenu = () => {
-    if (typeof window != 'undefined' && window.document) {
-      if (document.body.style.overflow === 'hidden')
-        document.body.style.overflow = 'auto';
-      else
-        document.body.style.overflow = 'hidden';
-    }
-    setisMobileMenuOpen(prev => !prev);
-  }
 
   return (
     <header>
