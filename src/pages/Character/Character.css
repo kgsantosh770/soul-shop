@@ -1,0 +1,108 @@
+.character-page {
+    margin: 0px var(--x-space);
+}
+
+.character-page .name {
+    text-transform: uppercase;
+    font-family: var(--font-family-bold);
+    font-size: var(--font-xxxl);
+    color: var(--border-color);
+}
+
+.character-page .price-section {
+    position: relative;
+    margin: 30px 0px;
+    padding-top: 20px;
+}
+
+.character-page .price-section::before {
+    content: '';
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 50%;
+    background-color: var(--border-color);
+    height: 0.5px;
+    display: block;
+}
+
+.character-page .price-section .price>span {
+    font-family: var(--font-family-bold);
+    font-size: var(--font-xxxl);
+    color: var(--border-color);
+}
+
+.character-page .price-section .price .period {
+    font-size: var(--font-large);
+    padding-left: 5px;
+}
+
+.character-page .features {
+    margin-top: 40px;
+}
+
+.character-page .features li {
+    margin-top: 10px;
+}
+
+.character-page .features li::before {
+    content: '';
+    display: inline-block;
+    position: relative;
+    top: 3px;
+    width: 16px;
+    height: 16px;
+    border-radius: 3px;
+    margin-right: 8px;
+    background-color: var(--border-color);
+}
+
+.character-page .char-img {
+    margin-top: 30px;
+}
+
+.character-page img {
+    width: 100%;
+}
+
+@media only screen and (min-width: 768px) {
+    .character-page {
+        display: flex;
+        flex-direction: row-reverse;
+    }
+
+    .character-page>div {
+        width: 50%;
+    }
+
+    .character-page * {
+        text-align: right;
+    }
+
+    .character-page .price-section,
+    .character-page .features {
+        width: max-content;
+        margin-left: auto;
+    }
+
+    .character-page .features ul {
+        display: grid;
+        grid-template-rows: repeat(3, min-content);
+        grid-auto-flow: column;
+        column-gap: 50px;
+    }
+
+    .character-page .features ul li {
+        text-align: left;
+    }
+
+    .character-page .price-section {
+        margin-top: 40px;
+    }
+
+    .character-page .price-section::before {
+        right: 0px;
+        left: unset;
+        width: 100%;
+    }
+}
