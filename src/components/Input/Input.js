@@ -1,15 +1,21 @@
 import './Input.css';
 
-const Input = (props) => {
+const Input = ({
+    label,
+    id,
+    type,
+    placeholder,
+    invalid,
+}) => {
     return (
         <div className='custom-input'>
-            {props.label && <label htmlFor={props.id}>{props.label}</label>}
+            {label && <label htmlFor={id}>{label}</label>}
             <input
-                id={props.id}
-                name={props.id}
-                type={props.type ? props.type : 'text'}
-                placeholder={props.placeholder}
-                className={props.invalid === true ? 'error' : ''}
+                id={id}
+                name={id}
+                type={type ? type : 'text'}
+                placeholder={placeholder}
+                className={invalid === true ? 'error' : ''}
             />
         </div>
     )
