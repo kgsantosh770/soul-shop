@@ -58,6 +58,7 @@ const Home = () => {
                             backgroundColor: '#CDD4F0',
                             color: '#000',
                             border: '0px',
+                            margin: '0px'
                         }}
                     />
                 </InputGroup>
