@@ -100,6 +100,11 @@ header .nav-footer .trademark{
     margin-top: 16px;
 }
 
+header .icon.profile{
+    width: 30px;
+    height: 30px;
+}
+
 /* desktop */
 @media only screen and (min-width: 768px) {
     header {

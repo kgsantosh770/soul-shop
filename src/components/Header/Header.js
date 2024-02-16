@@ -4,6 +4,7 @@ import { DESKTOP_MIN_WIDTH } from '../../utils/constants';
 import LogoDesktop from '../../assets/images/logos/logo-desktop.svg';
 import LogoMobile from '../../assets/images/logos/logo-mobile.svg';
 import CartIcon from '../../assets/images/icons/cart.svg';
+import ProfileIcon from '../../assets/images/icons/profile.png';
 import MenuIcon from '../../assets/images/icons/hamburger-menu.svg';
 import LogoMobileLarge from '../../assets/images/logos/logo-mobile-large.svg';
 import CloseIcon from '../../assets/images/icons/close.svg';
@@ -14,7 +15,7 @@ import IconBadge from '../IconBadge/IconBadge';
 import SocialBox from '../SocialBox/SocialBox';
 
 const Header = () => {
-  const cartItemCount = 100;
+  const cartItemCount = 7;
   const [isMobileMenuOpen, setisMobileMenuOpen] = useState(false);
   const navlinks = [
     { name: 'Characters', route: '/characters' },
@@ -77,6 +78,11 @@ const Header = () => {
         <button>
           <IconBadge badgeCount={cartItemCount}>
             <img className='icon' alt='Cart' title='Cart' src={CartIcon} />
+          </IconBadge>
+        </button>
+        <button>
+          <IconBadge badgeCount={0}>
+            <img className='icon profile' alt='Profile' title='Profile' src={ProfileIcon} />
           </IconBadge>
         </button>
         <button className='only-mobile' onClick={toggleSideMenu}>
