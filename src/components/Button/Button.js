@@ -18,7 +18,7 @@ const Button = ({ btnText, handleClick, image, imageTitle, style, route, classNa
 
     return route ?
         (
-            <Link className={btnClassName} to={route}>{buttonContent}</Link>
+            <Link className={btnClassName} to={route} title={btnText}>{buttonContent}</Link>
         ) :
 
         (
