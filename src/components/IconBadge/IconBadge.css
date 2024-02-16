@@ -12,8 +12,8 @@
   width: 20px;
   height: 20px;
   text-align: center;
-  font-size: var(--font-xxs);
-  font-family: var(--font-family-semibold);
+  font-size: var(--font-xs);
+  font-family: var(--font-family-medium);
   display: flex;
   align-items: center;
   justify-content: center;
