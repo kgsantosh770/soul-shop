@@ -11,6 +11,7 @@ import Categories from './pages/Categories/Categories';
 import Character from './pages/Character/Character';
 import Checkout from './pages/Checkout/Checkout';
 import PaymentOptions from './pages/PaymentOptions/PaymentOptions';
+import PaymentComplete from './pages/PaymentComplete/PaymentComplete';
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
       {
         path: '/payment-options',
         element: <PaymentOptions />
+      },
+      {
+        path: '/payment/:status',
+        element: <PaymentComplete />
       }
     ]
   },

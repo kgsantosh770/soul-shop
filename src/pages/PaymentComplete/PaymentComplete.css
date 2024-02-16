@@ -1,0 +1,102 @@
+.payment-complete-page {
+    margin: 20px var(--x-space);
+    max-width: 500px;
+}
+
+.payment-complete-page .status-img {
+    width: 70px;
+    height: auto;
+    margin: 0px auto;
+    display: block;
+}
+
+.payment-complete-page .status-img+p {
+    font-size: var(--font-large);
+    font-family: var(--font-family-semibold);
+}
+
+.payment-complete-page>div>p {
+    text-align: center;
+    margin: 30px 0px;
+}
+
+.payment-complete-page .highlight {
+    color: var(--text-theme-color);
+    font-family: var(--font-family-semibold);
+}
+
+.payment-complete-page>div :where(p, span) {
+    line-height: 1.25;
+    font-family: var(--font-family-light);
+}
+
+.payment-complete-page .email {
+    text-decoration: underline;
+    font-family: var(--font-family-medium);
+    display: block;
+}
+
+.payment-complete-page .order-review {
+    border: 1.5px solid var(--border-color);
+    border-radius: 8px;
+    margin-top: 40px;
+}
+
+.payment-complete-page .order-review button {
+    color: var(--secondary-bg-color);
+    font-size: var(--font-medium);
+    font-family: var(--font-family-regular);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 16px 20px;
+}
+
+.payment-complete-page .order-review button img.open {
+    transform: rotate(90deg);
+}
+
+.payment-complete-page .order-review ul {
+    padding: 0px 20px;
+    border-top: 1.5px solid var(--border-color);
+}
+
+.payment-complete-page .order-review ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0px;
+}
+
+.payment-complete-page .order-review .name {
+    font-family: var(--font-medium);
+}
+
+.payment-complete-page .order-review .period {
+    font-size: var(--font-xs);
+}
+
+.payment-complete-page .order-review .price {
+    font-family: var(--font-family-semibold);
+}
+
+.payment-complete-page .order-review .total {
+    border-top: 1px solid var(--border-color);
+    padding: 20px 0px 10px;
+}
+
+.payment-complete-page .order-review.close ul {
+    display: none;
+}
+
+.payment-complete-page .final-btn {
+    width: max-content;
+    margin-top: 40px;
+}
+
+@media only screen and (min-width: 768px) {
+    .payment-complete-page {
+        margin: 20px auto;
+    }
+}
