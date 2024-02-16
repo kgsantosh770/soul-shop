@@ -13,8 +13,8 @@ const Input = ({
             <input
                 id={id}
                 name={id}
-                type={type ? type : 'text'}
-                placeholder={placeholder}
+                type={type ?? 'text'}
+                placeholder={placeholder ?? ''}
                 className={invalid === true ? 'error' : ''}
             />
         </div>
