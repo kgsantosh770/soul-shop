@@ -68,9 +68,6 @@ header .social-box{
 }
 
 header .nav-footer{
-    /* position: absolute;
-    bottom: 30px;
-    left: 26px; */
     width: max-content;
     margin: 40px 20px;
 }
@@ -105,10 +102,19 @@ header .icon.profile{
     height: 30px;
 }
 
+header .login-btn{
+    border-radius: 8px;
+    color: var(--secondary-bg-color);
+    margin: 30px;
+    display: block;
+    font-size: var(--font-medium);
+}
+
 /* desktop */
 @media only screen and (min-width: 768px) {
     header {
         padding: 26px var(--x-space);
+        justify-content: flex-start;
     }
 
     header .nav-links li{
@@ -133,5 +139,13 @@ header .icon.profile{
 
     header .nav-links a.active::before{
         width: 100%;
+    }
+
+    header .right-icons{
+        margin-left: auto;
+    }
+
+    header .login-btn{
+        margin: 0px;
     }
 }

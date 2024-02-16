@@ -80,11 +80,13 @@ const Header = () => {
             <img className='icon' alt='Cart' title='Cart' src={CartIcon} />
           </IconBadge>
         </button>
-        <button>
+        <button className='only-desktop'>
           <IconBadge badgeCount={0}>
             <img className='icon profile' alt='Profile' title='Profile' src={ProfileIcon} />
           </IconBadge>
         </button>
+        <Link to={'/signin'} className='login-btn only-desktop'>Signin</Link>
+        <Link to={'/register'} className='login-btn only-desktop'>Register</Link>
         <button className='only-mobile' onClick={toggleSideMenu}>
           <img className='icon icon-large' alt='Menu' title='Menu' src={MenuIcon} />
         </button>
@@ -97,6 +99,8 @@ const Header = () => {
           </button>
           <img alt='logo' title='logo' src={LogoMobileLarge} />
           {navLinkElements}
+          <Link to={'/signin'} className='login-btn'>Signin</Link>
+          <Link to={'/register'} className='login-btn'>Register</Link>
           <SocialBox className='divider-top' />
           <div className='nav-footer'>
             <p>Download</p>
