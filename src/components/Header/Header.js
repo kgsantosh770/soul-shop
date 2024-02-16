@@ -99,8 +99,8 @@ const Header = () => {
           </button>
           <img alt='logo' title='logo' src={LogoMobileLarge} />
           {navLinkElements}
-          <Link to={'/signin'} className='login-btn'>Signin</Link>
-          <Link to={'/register'} className='login-btn'>Register</Link>
+          <Link onClick={toggleSideMenu} to={'/signin'} className='login-btn'>Signin</Link>
+          <Link onClick={toggleSideMenu} to={'/register'} className='login-btn'>Register</Link>
           <SocialBox className='divider-top' />
           <div className='nav-footer'>
             <p>Download</p>
