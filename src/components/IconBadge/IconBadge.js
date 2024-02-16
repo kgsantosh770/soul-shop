@@ -3,7 +3,10 @@ import './IconBadge.css';
 const IconBadge = ({ children, badgeCount }) => {
     return (
         <div className="icon-wrapper">
-            <span className="badge">{badgeCount > 10 ? '10⁺' : badgeCount}</span>
+            {
+                badgeCount > 0 &&
+                <span className="badge">{badgeCount > 9 ? '9+' : badgeCount}</span>
+            }
             {children}
         </div>
     )
