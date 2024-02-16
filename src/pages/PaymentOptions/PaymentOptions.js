@@ -58,7 +58,7 @@ const PaymentOptions = () => {
                 <img alt='secured' title='secured' src={LockIcon} />
                 <span>We protect your payment information using encryption to provide bank-level security.</span>
             </div>
-            <NavigationButtons backRoute={'/checkout'} nextRoute={'/payment'} />
+            <NavigationButtons backRoute={'/checkout'} nextRoute={'/payment/success'} />
         </div>
     )
 }
