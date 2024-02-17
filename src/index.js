@@ -12,6 +12,7 @@ import Character from './pages/Character/Character';
 import Checkout from './pages/Checkout/Checkout';
 import PaymentOptions from './pages/PaymentOptions/PaymentOptions';
 import PaymentComplete from './pages/PaymentComplete/PaymentComplete';
+import Signin from './pages/Signin/Signin';
 
 const router = createBrowserRouter([
   {
@@ -41,7 +42,15 @@ const router = createBrowserRouter([
       {
         path: '/payment/:status',
         element: <PaymentComplete />
-      }
+      },
+      {
+        path: '/signin',
+        element: <Signin />
+      },
+      {
+        path: '/register',
+        // element: <Register />
+      },
     ]
   },
 ]);
