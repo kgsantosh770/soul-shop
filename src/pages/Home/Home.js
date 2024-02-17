@@ -8,7 +8,6 @@ import './Home.css';
 import BrandBox from '../../components/BrandBox/BrandBox';
 import Button from '../../components/Button/Button';
 import Input from '../../components/Input/Input';
-import InputGroup from '../../components/InputGroup/InputGroup';
 import Banner from '../../components/Banner/Banner';
 
 const Home = () => {
@@ -50,8 +49,8 @@ const Home = () => {
                 <p>
                     <span>Stay in the loop! <span className='highlight'>Subscribe for updates</span>, exclusive offers, articles, and news delivered to your inbox.</span>
                 </p>
-                <InputGroup>
-                    <Input type='email' placeholder='Enter your email address' rounded={true}/>
+                <div className='email-wrapper'>
+                    <Input type='email' placeholder='Enter your email address' rounded={true} />
                     <Button
                         btnText="Subscribe right now"
                         filled
@@ -61,7 +60,7 @@ const Home = () => {
                             margin: '0px'
                         }}
                     />
-                </InputGroup>
+                </div>
             </div>
         </section>
     )
