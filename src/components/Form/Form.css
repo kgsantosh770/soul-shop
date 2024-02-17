@@ -1,0 +1,53 @@
+.custom-form-container {
+    padding: 30px var(--x-space) 0px;
+    background: url('../../assets/images/illustrations/group-mobile.png') no-repeat;
+    background-position: center;
+}
+
+.custom-form {
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 500px;
+    border-radius: 8px;
+    background: rgba(127, 103, 144, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.411);
+}
+
+@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+    .custom-form {
+        backdrop-filter: blur(60px) saturate(180%);
+        -webkit-backdrop-filter: blur(60px) saturate(180%);
+    }
+}
+
+.custom-form input {
+    margin: 10px 0px 32px;
+}
+
+.custom-form input[type=submit] {
+    margin-top: 28px;
+}
+
+.custom-form .custom-input {
+    flex-basis: 100%;
+}
+
+@media only screen and (min-width: 768px) {
+    .custom-form-container {
+        padding: 60px 0px;
+        background: url('../../assets/images/illustrations/group.png') no-repeat center/contain;
+    }
+    
+    .custom-form {
+        margin: auto;
+        max-width: 350px;
+    }
+
+    @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+        .custom-form {
+            backdrop-filter: blur(100px) saturate(180%);
+            -webkit-backdrop-filter: blur(100px) saturate(180%);
+        }
+    }
+}
