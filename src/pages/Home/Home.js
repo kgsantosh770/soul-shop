@@ -51,12 +51,12 @@ const Home = () => {
                     <span>Stay in the loop! <span className='highlight'>Subscribe for updates</span>, exclusive offers, articles, and news delivered to your inbox.</span>
                 </p>
                 <InputGroup>
-                    <Input type='email' placeholder='Enter your email address' />
+                    <Input type='email' placeholder='Enter your email address' rounded={true}/>
                     <Button
                         btnText="Subscribe right now"
+                        filled
                         style={{
-                            backgroundColor: '#CDD4F0',
-                            color: '#000',
+                            backgroundColor: '',
                             border: '0px',
                             margin: '0px'
                         }}
