@@ -1,5 +1,5 @@
 .custom-form-container {
-    padding: 30px var(--x-space) 0px;
+    padding: 0px var(--x-space);
     background: url('../../assets/images/illustrations/group-mobile.png') no-repeat;
     background-position: center;
 }
@@ -22,26 +22,42 @@
 }
 
 .custom-form input {
-    margin: 10px 0px 32px;
+    margin: 10px 0px 22px;
+}
+
+.custom-form .input-grp {
+    margin: 0px;
+    gap: 0px;
 }
 
 .custom-form input[type=submit] {
     margin-top: 28px;
 }
 
-.custom-form .custom-input {
-    flex-basis: 100%;
+.custom-form .custom-input.w-50:first-child{
+    margin-right: 20px;
+}
+
+.custom-form .linker {
+    margin: 0px auto;
+}
+
+.custom-form .linker a{
+    font-family: var(--font-family-semibold);
+    color: var(--text-theme-color);
+    text-decoration: underline;
 }
 
 @media only screen and (min-width: 768px) {
     .custom-form-container {
-        padding: 60px 0px;
-        background: url('../../assets/images/illustrations/group.png') no-repeat center/contain;
+        padding: 40px 0px;
+        background: url('../../assets/images/illustrations/group.png') no-repeat center 20px;
+        background-size: 900px 500px;
     }
-    
+
     .custom-form {
         margin: auto;
-        max-width: 350px;
+        max-width: 450px;
     }
 
     @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {

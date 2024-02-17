@@ -1,11 +1,21 @@
+.custom-input {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+}
+
 .custom-input input {
     border: 1.5px solid var(--secondary-bg-color);
-    padding: 18px;
+    padding: 12px 14px;
     border-radius: 6px;
-    width: -webkit-fill-available;
+    width: 100%;
     background-color: transparent;
     color: var(--secondary-bg-color);
     font-size: var(--font-regular);
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 .custom-input input::placeholder {
@@ -51,4 +61,13 @@
     .custom-input input {
         outline: 1px solid;
     }
+
+    .custom-input label {
+        display: block;
+    }
+
+    .custom-input.w-half {
+        width: 47%;
+    }
+
 }
