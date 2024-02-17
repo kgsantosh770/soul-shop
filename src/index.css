@@ -5,6 +5,7 @@
   --dark-bg-color: #1A0E22;
   --theme-bg-color: #19213D;
   --secondary-bg-color: #ffffff;
+  --success-color: #4bff5a;
   --error-color: #ef1717;
   --border-color: #CDD4F0;
   --muted-text-color: #888889;
@@ -37,7 +38,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: var(--bg-color) no-repeat;
   color: var(--secondary-bg-color);
-  font-size: var(--font-regular);
+  font-size: var(--font-small);
 }
 
 button {
