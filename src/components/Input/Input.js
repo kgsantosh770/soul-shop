@@ -4,18 +4,20 @@ const Input = ({
     label,
     id,
     type,
-    placeholder,
     invalid,
+    rounded,
+    filled,
+    ...otherInputAttributes
 }) => {
     return (
-        <div className='custom-input'>
+        <div className={`custom-input${filled === true ? ' filled' : ''}`}>
             {label && <label htmlFor={id}>{label}</label>}
             <input
                 id={id}
                 name={id}
                 type={type ?? 'text'}
-                placeholder={placeholder ?? ''}
-                className={invalid === true ? 'error' : ''}
+                className={`${invalid === true ? 'error' : ''}${rounded ? ' rounded' : ''}`}
+                {...otherInputAttributes}
             />
         </div>
     )
