@@ -13,6 +13,7 @@ import Checkout from './pages/Checkout/Checkout';
 import PaymentOptions from './pages/PaymentOptions/PaymentOptions';
 import PaymentComplete from './pages/PaymentComplete/PaymentComplete';
 import Signin from './pages/Signin/Signin';
+import Register from './pages/Register/Register';
 
 const router = createBrowserRouter([
   {
@@ -49,7 +50,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/register',
-        // element: <Register />
+        element: <Register />
       },
     ]
   },

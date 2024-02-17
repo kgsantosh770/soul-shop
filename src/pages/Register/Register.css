@@ -1,0 +1,18 @@
+.register-form .password-checklist{
+    font-size: var(--font-xs);
+}
+
+.register-form .password-checklist li{
+    margin-bottom: 4px;
+    opacity: 0.8;
+    font-family: var(--font-family-medium);
+}
+
+.register-form .password-checklist li.checked{
+    opacity: 1;
+    color: var(--success-color);
+}
+
+.register-form input[type=password]{
+    margin-bottom: 16px;
+}
