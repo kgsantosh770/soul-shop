@@ -3,16 +3,27 @@
     padding: 18px 32px;
     color: var(--secondary-bg-color);
     border-radius: 32px;
-    font-family: var(--font-family-medium);
     word-spacing: 2px;
     display: block;
     margin: 0px auto;
+}
+
+.custom-btn.filled {
+    background-color: var(--border-color);
 }
 
 .custom-btn .btn-content {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.custom-btn.filled .btn-content span {
+    color: var(--theme-bg-color);
+}
+
+.custom-btn .btn-content span{
+    font-family: var(--font-family-medium);
 }
 
 .custom-btn.large-font {
@@ -23,14 +34,14 @@
     margin-left: 5px;
 }
 
-.custom-btn.disabled{
+.custom-btn.disabled {
     opacity: 0.5;
     pointer-events: none;
     cursor: auto;
 }
 
 @media only screen and (min-width: 768px) {
-    .custom-btn:hover{
-        transform: translate3d(0.5px,-0.5px,1px);
+    .custom-btn:hover {
+        transform: translate3d(0.5px, -0.5px, 1px);
     }
 }

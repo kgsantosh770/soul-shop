@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import './Button.css';
 
-const Button = ({ btnText, handleClick, image, imageTitle, style, route, className, disabled }) => {
+const Button = ({ btnText, handleClick, image, imageTitle, style, route, className, disabled, filled }) => {
     const buttonContent = (
         <div className='btn-content'>
             {btnText && <span>{btnText}</span>}
@@ -14,7 +14,7 @@ const Button = ({ btnText, handleClick, image, imageTitle, style, route, classNa
             }
         </div>
     )
-    const btnClassName = `custom-btn btn ${disabled === true ? 'disabled' : ''} ${className ? className : ''}`;
+    const btnClassName = `custom-btn btn${disabled === true ? ' disabled' : ''}${filled ? ' filled' : ''} ${className ? className : ''}`;
 
     return route ?
         (
