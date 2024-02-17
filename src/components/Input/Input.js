@@ -7,10 +7,11 @@ const Input = ({
     invalid,
     rounded,
     filled,
+    halfWidth,
     ...otherInputAttributes
 }) => {
     return (
-        <div className={`custom-input${filled === true ? ' filled' : ''}`}>
+        <div className={`custom-input${filled === true ? ' filled' : ''}${halfWidth ? ' w-half' : ''}`}>
             {label && <label htmlFor={id}>{label}</label>}
             <input
                 id={id}
