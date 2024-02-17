@@ -1,5 +1,5 @@
 footer {
-    margin: 120px var(--x-space) 30px;
+    margin: 80px var(--x-space) 30px;
 }
 
 footer .footer-quote img,
@@ -44,6 +44,7 @@ footer .app-store-links img {
 /* desktop */
 @media only screen and (min-width: 768px) {
     footer {
+        margin-top: 120px;
         display: flex;
         justify-content: space-between;
         margin-bottom: 0px;
