@@ -1,7 +1,10 @@
 import express from "express";
 import User from "./UserSchema.js";
 import bcryptjs from "bcryptjs";
+import jwt from "jsonwebtoken";
+import "dotenv/config";
 
+const env = process.env;
 const UserRouter = express.Router();
 
 UserRouter.post('/register', async (req, res) => {
@@ -30,6 +33,8 @@ UserRouter.post('/login',async (req,res)=>{
         if(!user) throw Error("Email does not exist.");
         const passwordMatches = bcryptjs.compareSync(password, user.password);
         if(!passwordMatches) throw Error("Invalid password");
+        const userToken = jwt.sign({email: user.email}, env.JWT_ENCODE_STRING);
+        res.header('auth',userToken);
         res.status(200).json({message: "Login Success."});
     } catch (error) {
         res.status(400).json({error: error.message});
