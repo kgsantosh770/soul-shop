@@ -17,9 +17,9 @@ UserRouter.post('/register', async (req, res) => {
             password: hashedPassword,
         })
         await user.save();
-        res.status(200).json("Account created successfully.");
+        res.status(200).json({message: "Account created successfully."});
     } catch (error) {
-        res.status(400).json(error.message);
+        res.status(400).json({error: error.message});
     }
 })
 
@@ -30,9 +30,9 @@ UserRouter.post('/login',async (req,res)=>{
         if(!user) throw Error("Email does not exist.");
         const passwordMatches = bcryptjs.compareSync(password, user.password);
         if(!passwordMatches) throw Error("Invalid password");
-        res.status(200).json("Login Success.");
+        res.status(200).json({message: "Login Success."});
     } catch (error) {
-        res.status(400).json(error.message);
+        res.status(400).json({error: error.message});
     }
 })
 
