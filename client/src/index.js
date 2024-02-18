@@ -14,6 +14,7 @@ import PaymentOptions from './pages/PaymentOptions/PaymentOptions';
 import PaymentComplete from './pages/PaymentComplete/PaymentComplete';
 import Signin from './pages/Signin/Signin';
 import Register from './pages/Register/Register';
+import PrivateRoutes from './utils/PrivateRoutes';
 
 const router = createBrowserRouter([
   {
@@ -37,14 +38,6 @@ const router = createBrowserRouter([
         element: <Checkout />
       },
       {
-        path: '/payment-options',
-        element: <PaymentOptions />
-      },
-      {
-        path: '/payment/:status',
-        element: <PaymentComplete />
-      },
-      {
         path: '/signin',
         element: <Signin />
       },
@@ -52,6 +45,19 @@ const router = createBrowserRouter([
         path: '/register',
         element: <Register />
       },
+      {
+        element: <PrivateRoutes />,
+        children: [
+          {
+            path: '/payment-options',
+            element: <PaymentOptions />
+          },
+          {
+            path: '/payment/:status',
+            element: <PaymentComplete />
+          },
+        ]
+      }
     ]
   },
 ]);
