@@ -1,15 +1,18 @@
-import { useState } from "react"
+import { useState } from "react";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const useForm = ({ additionalData }) => {
     const [loading, setLoading] = useState(false);
     const [result, setResult] = useState('');
+    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        toast.dismiss();
         setLoading(true);
         setResult('');
         const endpoint = e.target.action;
-        console.log(endpoint);
         const inputs = Array.from(e.target.elements).filter(input => input.type !== 'submit');
         let data = {}
         inputs.forEach(input => data[input.name] = input.value);
@@ -25,12 +28,13 @@ const useForm = ({ additionalData }) => {
                 body: JSON.stringify(data),
             })
             const response = await result.json();
-            console.log(response);
-            if(response.status !== 200) throw Error(response.error)
+            if(result.status !== 200) throw Error(response.error)
             setLoading(false);
             setResult(response.message);
+            toast.success(response.message, {duration: 5000});
+            navigate('/');
         } catch (error) {
-            console.log(error);
+            toast.error(error.message, {duration: 5000});
         }
     }
 
