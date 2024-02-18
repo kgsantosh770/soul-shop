@@ -43,7 +43,7 @@ const PaymentComplete = () => {
                         )
                     }
                     Questions? Suggestions? insightful showe thoughts?&nbsp;
-                    <a href='#' title='Email me' className='email'>Shoot me an email.</a>
+                    <a href='#dummy' title='Email me' className='email'>Shoot me an email.</a>
                 </p>
             </div>
             {
