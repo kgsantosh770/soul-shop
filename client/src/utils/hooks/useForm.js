@@ -7,34 +7,46 @@ const useForm = ({ additionalData }) => {
     const [result, setResult] = useState('');
     const navigate = useNavigate();
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        toast.dismiss();
-        setLoading(true);
-        setResult('');
-        const endpoint = e.target.action;
+    const getFormData = (e, additionalData) => {
         const inputs = Array.from(e.target.elements).filter(input => input.type !== 'submit');
         let data = {}
         inputs.forEach(input => data[input.name] = input.value);
         data = { ...data, ...additionalData }
+        return data;
+    }
 
+    const setInitialState = () => {
+        toast.dismiss();
+        setLoading(true);
+        setResult('');
+    }
+
+    const handleSuccess = (message) => {
+        setLoading(false);
+        setResult(message);
+        toast.success(message, { duration: 5000 });
+        navigate('/');
+    }
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setInitialState();
+        const endpoint = e.target.action;
+        const data = getFormData(e, additionalData);
         try {
             const result = await fetch(endpoint, {
                 method: e.target.method,
                 headers: {
-                    Accept: 'application/json',
+                    'Accept': 'application/json',
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(data),
             })
             const response = await result.json();
-            if(result.status !== 200) throw Error(response.error)
-            setLoading(false);
-            setResult(response.message);
-            toast.success(response.message, {duration: 5000});
-            navigate('/');
+            if (result.status !== 200) throw Error(response.error)
+            handleSuccess(response.message);
         } catch (error) {
-            toast.error(error.message, {duration: 5000});
+            toast.error(error.message, { duration: 5000 });
         }
     }
 
