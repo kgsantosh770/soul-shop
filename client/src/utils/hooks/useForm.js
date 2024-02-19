@@ -1,11 +1,9 @@
 import { useState } from "react";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
 
-const useForm = () => {
+const useForm = (validateForm = () => true) => {
     const [loading, setLoading] = useState(false);
     const [result, setResult] = useState({});
-    const navigate = useNavigate();
 
     const getFormData = (e) => {
         const inputs = Array.from(e.target.elements).filter(input => input.type !== 'submit');
@@ -33,6 +31,13 @@ const useForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setInitialState();
+        if (validateForm) {
+            const result = validateForm();
+            if (result !== true) {
+                toast.error(result, { duration: 5000 });
+                return;
+            }
+        }
         const endpoint = e.target.action;
         const data = getFormData(e);
         try {
@@ -53,6 +58,10 @@ const useForm = () => {
     }
 
     return { handleSubmit, loading, result }
+}
+
+useForm.defaultProps = {
+    validateForm: () => { },
 }
 
 export default useForm;
