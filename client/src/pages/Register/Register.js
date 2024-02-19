@@ -1,9 +1,12 @@
-import { useReducer } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useReducer } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { isAuthorized, isValidEmail } from "../../utils/validators";
 import Form from "../../components/Form/Form";
 import Input from "../../components/Input/Input";
 import InputGroup from "../../components/InputGroup/InputGroup";
 import './Register.css';
+import useForm from "../../utils/hooks/useForm";
+import toast from "react-hot-toast";
 
 const Register = () => {
     const initialPasswordChecklist = [
@@ -57,13 +60,39 @@ const Register = () => {
             dispatch({ type: "UNCHECK", id: 3 })
     }
 
+    const validateForm = () => {
+        if (!isValidEmail) return "Invalid Email";
+        const passwordCheckFailed = passwordChecks.find(check => check.status === false);
+        if (passwordCheckFailed) return "Password does not match the below criterias.";
+        return true;
+    }
+
+    const endpoint = process.env.REACT_APP_API_BASE_URL + '/register';
+    const navigate = useNavigate();
+    const { handleSubmit, result } = useForm(validateForm);
+
+    useEffect(() => {
+        let authorized = isAuthorized();
+        if (authorized) navigate('/', { replace: true })
+    }, [])
+
+
+    useEffect(() => {
+        const handleSuccess = () => {
+            toast('Please sign in.');
+        }
+
+        if (result.response?.status === 200)
+            handleSuccess();
+    }, [result, navigate])
+
     return (
         <div className="register-form">
-            <Form>
+            <Form action={endpoint} onSubmit={handleSubmit}>
                 <InputGroup>
                     <Input
                         label='Name'
-                        id='Name'
+                        id='name'
                         type='text'
                         placeholder='Santosh'
                         required
@@ -95,7 +124,6 @@ const Register = () => {
                     type='submit'
                     id='registerSubmit'
                     value="Create Account"
-                    onChange={(e) => handlePasswordChange(e)}
                 />
                 <p className="linker">
                     Already have an account ? &nbsp;
