@@ -74,7 +74,7 @@ const Register = () => {
     useEffect(() => {
         let authorized = isAuthorized();
         if (authorized) navigate('/', { replace: true })
-    }, [])
+    }, [navigate])
 
 
     useEffect(() => {
@@ -84,7 +84,7 @@ const Register = () => {
 
         if (result.response?.status === 200)
             handleSuccess();
-    }, [result, navigate])
+    }, [result])
 
     return (
         <div className="register-form">
