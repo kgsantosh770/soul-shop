@@ -35,6 +35,7 @@ UserRouter.post('/login',async (req,res)=>{
         if(!passwordMatches) throw Error("Invalid password");
         const userToken = jwt.sign({email: user.email}, env.JWT_ENCODE_STRING);
         res.header('auth',userToken);
+        res.header('Access-Control-Expose-Headers', 'auth');
         res.status(200).json({message: "Login Success."});
     } catch (error) {
         res.status(400).json({error: error.message});
