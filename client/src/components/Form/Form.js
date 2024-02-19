@@ -1,12 +1,11 @@
 import './Form.css';
 
-const Form = ({ children, actionEndpoint, handleSubmit }) => {
+const Form = ({ children, ...formAttributes }) => {
     return (
         <div className='custom-form-container'>
             <form
                 method='POST'
-                action={actionEndpoint}
-                onSubmit={handleSubmit}
+                {...formAttributes}
                 className="custom-form">
                 {children}
             </form>
