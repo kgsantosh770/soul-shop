@@ -1,8 +1,6 @@
 import './Form.css';
-import useForm from '../../utils/hooks/useForm';
 
-const Form = ({ children, actionEndpoint, additionalData }) => {
-    const { handleSubmit } = useForm({additionalData});
+const Form = ({ children, actionEndpoint, handleSubmit }) => {
     return (
         <div className='custom-form-container'>
             <form
@@ -15,10 +13,5 @@ const Form = ({ children, actionEndpoint, additionalData }) => {
         </div>
     )
 }
-
-Form.defaultProps = {
-    additionalData: {}
-}
-
 
 export default Form
