@@ -56,6 +56,7 @@ const Register = () => {
         else
             dispatch({ type: "UNCHECK", id: 3 })
     }
+
     return (
         <div className="register-form">
             <Form>
@@ -65,12 +66,14 @@ const Register = () => {
                         id='Name'
                         type='text'
                         placeholder='Santosh'
+                        required
                     />
                     <Input
                         label='Email'
                         id='email'
                         type='email'
                         placeholder='santosh@gmail.com'
+                        required
                     />
                 </InputGroup>
                 <Input
@@ -79,6 +82,7 @@ const Register = () => {
                     type='password'
                     placeholder='Enter your password'
                     onChange={(e) => handlePasswordChange(e)}
+                    required
                 />
                 <ul className="password-checklist">
                     {
