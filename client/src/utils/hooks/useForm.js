@@ -23,7 +23,7 @@ const useForm = (validateForm = () => true) => {
         setResult({
             message: responseData.message,
             response: response,
-            data: responseData,
+            data: responseData.data,
         });
         toast.success(responseData.message, { duration: 5000 });
     }
