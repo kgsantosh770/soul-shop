@@ -13,10 +13,12 @@ import AppStoreImage from '../../assets/images/icons/app-store.svg';
 import './Header.css';
 import IconBadge from '../IconBadge/IconBadge';
 import SocialBox from '../SocialBox/SocialBox';
+import { useSelector } from 'react-redux';
 
 const Header = () => {
   const cartItemCount = 7;
   const [isMobileMenuOpen, setisMobileMenuOpen] = useState(false);
+  const user = useSelector((state) => state.user);
   const navlinks = [
     { name: 'Characters', route: '/characters' },
     { name: 'About Us', route: '/about' },
@@ -85,8 +87,13 @@ const Header = () => {
             <img className='icon profile' alt='Profile' title='Profile' src={ProfileIcon} />
           </IconBadge>
         </button>
-        <Link to={'/signin'} className='login-btn only-desktop'>Signin</Link>
-        <Link to={'/register'} className='login-btn only-desktop'>Register</Link>
+        {
+          user === null &&
+          <>
+            <Link to={'/signin'} className='login-btn only-desktop'>Signin</Link>
+            <Link to={'/register'} className='login-btn only-desktop'>Register</Link>
+          </>
+        }
         <button className='only-mobile' onClick={toggleSideMenu}>
           <img className='icon icon-large' alt='Menu' title='Menu' src={MenuIcon} />
         </button>
@@ -99,8 +106,13 @@ const Header = () => {
           </button>
           <img alt='logo' title='logo' src={LogoMobileLarge} />
           {navLinkElements}
-          <Link onClick={toggleSideMenu} to={'/signin'} className='login-btn'>Signin</Link>
-          <Link onClick={toggleSideMenu} to={'/register'} className='login-btn'>Register</Link>
+          {
+            user === null &&
+            <>
+              <Link onClick={toggleSideMenu} to={'/signin'} className='login-btn'>Signin</Link>
+              <Link onClick={toggleSideMenu} to={'/register'} className='login-btn'>Register</Link>
+            </>
+          }
           <SocialBox className='divider-top' />
           <div className='nav-footer'>
             <p>Download</p>
