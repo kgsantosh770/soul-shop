@@ -15,6 +15,8 @@ import PaymentComplete from './pages/PaymentComplete/PaymentComplete';
 import Signin from './pages/Signin/Signin';
 import Register from './pages/Register/Register';
 import { PrivateRoutes, PublicOnlyRoutes } from './utils/conditionalRoutes';
+import store from './redux/store';
+import { Provider } from 'react-redux';
 
 const router = createBrowserRouter([
   {
@@ -70,6 +72,8 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   </React.StrictMode>
 );
