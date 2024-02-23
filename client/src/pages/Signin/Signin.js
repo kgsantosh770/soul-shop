@@ -26,7 +26,7 @@ const Signin = () => {
 
     if (result.response?.status === 200)
       handleSuccess();
-  }, [result, navigate])
+  }, [result, navigate, dispatch])
 
 
   return (
