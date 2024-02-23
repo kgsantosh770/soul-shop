@@ -2,7 +2,7 @@ import { useState } from 'react';
 import ArrowRightIcon from '../../assets/images/icons/arrow-right.svg';
 import Button from '../../components/Button/Button';
 import Image from '../../components/Image/Image';
-import { TAX, mostViewCharacters } from '../../utils/constants';
+import { TAX, mostViewCharacters } from '../../features/utils/constants';
 import './Checkout.css';
 
 const NavigationButtons = ({ backRoute, nextRoute, mobile, desktop, disableBackButton }) => (

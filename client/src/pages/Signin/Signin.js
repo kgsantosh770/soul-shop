@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import Form from "../../components/Form/Form";
 import Input from "../../components/Input/Input";
-import useForm from '../../utils/hooks/useForm';
+import useForm from '../../features/hooks/useForm';
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../../redux/userSlice";

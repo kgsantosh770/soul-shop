@@ -1,4 +1,4 @@
-import { mostViewCharacters as characters } from '../../utils/constants';
+import { mostViewCharacters as characters } from '../../features/utils/constants';
 import ArrowRightIcon from '../../assets/images/icons/arrow-right.svg';
 import TickIcon from '../../assets/images/icons/tick-green.png';
 import CloseIcon from '../../assets/images/icons/close-red.png';

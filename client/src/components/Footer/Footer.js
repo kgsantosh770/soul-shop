@@ -2,7 +2,7 @@ import PlayStoreImage from '../../assets/images/icons/google-play.svg';
 import AppStoreImage from '../../assets/images/icons/app-store.svg';
 import LogoMobile from '../../assets/images/logos/logo-mobile.svg';
 import LogoDesktop from '../../assets/images/logos/logo-desktop.svg';
-import { DESKTOP_MIN_WIDTH } from '../../utils/constants';
+import { DESKTOP_MIN_WIDTH } from '../../features/utils/constants';
 import './Footer.css';
 import SocialBox from '../SocialBox/SocialBox';
 

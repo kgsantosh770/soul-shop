@@ -1,4 +1,4 @@
-import { DESKTOP_MIN_WIDTH } from '../../utils/constants';
+import { DESKTOP_MIN_WIDTH } from '../../features/utils/constants';
 
 const Image = ({ image, alt, title, desktopImage = null, className }) => {
     return (

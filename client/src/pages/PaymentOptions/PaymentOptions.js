@@ -1,5 +1,5 @@
 import LockIcon from '../../assets/images/icons/lock.svg';
-import { PAYMENT_OPTIONS as paymentOptions, TAX } from '../../utils/constants';
+import { PAYMENT_OPTIONS as paymentOptions, TAX } from '../../features/utils/constants';
 import { NavigationButtons } from '../Checkout/Checkout';
 import './PaymentOptions.css';
 

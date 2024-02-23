@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
-import { DESKTOP_MIN_WIDTH } from '../../utils/constants';
+import { DESKTOP_MIN_WIDTH } from '../../features/utils/constants';
 import LogoDesktop from '../../assets/images/logos/logo-desktop.svg';
 import LogoMobile from '../../assets/images/logos/logo-mobile.svg';
 import CartIcon from '../../assets/images/icons/cart.svg';

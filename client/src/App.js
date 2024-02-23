@@ -5,7 +5,7 @@ import { Toaster } from "react-hot-toast";
 import './App.css';
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { isAuthorized } from "./utils/validators";
+import { isAuthorized } from "./features/utils/validators";
 import { addUser } from "./redux/userSlice";
 
 function App() {

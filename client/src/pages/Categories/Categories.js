@@ -1,4 +1,4 @@
-import { characters } from "../../utils/constants";
+import { characters } from "../../features/utils/constants";
 import CardGroup from "../../components/CardGroup/CardGroup";
 import Banner from "../../components/Banner/Banner";
 

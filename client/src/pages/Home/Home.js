@@ -2,7 +2,7 @@ import AiSoulGroupMobileImage from '../../assets/images/illustrations/group-mobi
 import AiSoulGroupImage from '../../assets/images/illustrations/group.png';
 import SoulInMobileImage from '../../assets/images/illustrations/smartphone-character.png';
 import CardGroup from '../../components/CardGroup/CardGroup';
-import { brands, popularCharacters as characters } from '../../utils/constants';
+import { brands, popularCharacters as characters } from '../../features/utils/constants';
 import Image from '../../components/Image/Image';
 import './Home.css';
 import BrandBox from '../../components/BrandBox/BrandBox';

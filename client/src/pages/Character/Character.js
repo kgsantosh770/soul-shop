@@ -4,7 +4,7 @@ import Button from '../../components/Button/Button';
 import Image from '../../components/Image/Image';
 import { useParams } from 'react-router-dom';
 import { useState } from 'react';
-import { characters } from '../../utils/constants';
+import { characters } from '../../features/utils/constants';
 import './Character.css';
 
 const Character = () => {

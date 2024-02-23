@@ -1,11 +1,11 @@
 import { useEffect, useReducer } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { isAuthorized, isValidEmail } from "../../utils/validators";
+import { isAuthorized, isValidEmail } from "../../features/utils/validators";
 import Form from "../../components/Form/Form";
 import Input from "../../components/Input/Input";
 import InputGroup from "../../components/InputGroup/InputGroup";
 import './Register.css';
-import useForm from "../../utils/hooks/useForm";
+import useForm from "../../features/hooks/useForm";
 import toast from "react-hot-toast";
 
 const Register = () => {

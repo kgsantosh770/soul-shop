@@ -5,7 +5,7 @@ import StarFilledIcon from '../../assets/images/icons/star-filled.svg';
 import Button from '../Button/Button';
 import './Card.css';
 import { Link } from 'react-router-dom';
-import { TOTAL_RATING } from '../../utils/constants';
+import { TOTAL_RATING } from '../../features/utils/constants';
 
 const Card = ({ id, showOptions, character }) => {
     const Stars = ({ rating }) => {
