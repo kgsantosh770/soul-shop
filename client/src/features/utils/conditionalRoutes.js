@@ -1,8 +1,9 @@
 import toast from 'react-hot-toast'
 import { Navigate, Outlet } from 'react-router-dom';
+import { getToken } from './getters';
 
 const PrivateRoutes = () => {
-    const authorized = localStorage.getItem('auth');
+    const authorized = getToken();
     if (authorized)
         return <Outlet />;
     else {
@@ -13,7 +14,7 @@ const PrivateRoutes = () => {
 }
 
 const PublicOnlyRoutes = () => {
-    const authorized = localStorage.getItem('auth');
+    const authorized = getToken();
     if (!authorized) return <Outlet />
     else return <Navigate to='/' />;
 }
