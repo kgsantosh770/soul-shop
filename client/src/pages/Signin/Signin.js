@@ -14,17 +14,17 @@ const Signin = () => {
 
   useEffect(() => {
     const handleSuccess = () => {
-      const response = result.response;
-      const token = response.headers.get('auth');
+      const {response, responseData} = result;
+      const token = response.headers.get('Authorization');
       if (token) {
-        localStorage.setItem('auth', token);
-        localStorage.setItem('loggedin_at', new Date());
-        if(result.data) dispatch(addUser(result.data));
+        localStorage.setItem('Authorization', token);
+        const user = responseData.data;
+        if(user) dispatch(addUser(user));
       }
       navigate(-1);
     }
 
-    if (result.response?.status === 200)
+    if (result)
       handleSuccess();
   }, [result, navigate, dispatch])
 
