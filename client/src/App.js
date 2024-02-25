@@ -1,37 +1,22 @@
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
-import { Outlet, ScrollRestoration } from "react-router-dom";
-import { Toaster } from "react-hot-toast";
+import { Outlet, ScrollRestoration, useFetcher } from "react-router-dom";
+import toast, { Toaster } from "react-hot-toast";
 import './App.css';
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { isAuthorized } from "./features/utils/validators";
 import { addUser } from "./redux/userSlice";
+import userApi from "./features/api/userApi";
+import useFetch from "./features/hooks/useFetch";
 
 function App() {
   const dispatch = useDispatch();
+  const { data: userData, loading, error } = useFetch(userApi.getUser())
 
   useEffect(() => {
-    const setUser = async () => {
-      const authorized = await isAuthorized();
-      const token = localStorage.getItem('auth');
-      if (authorized && token) {
-        console.log(`${process.env.REACT_APP_API_BASE_URL}/getUser`);
-        console.log(token);
-        const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/getUser`, {
-          method: 'POST',
-          headers: {
-              'Accept': 'application/json',
-              'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ token: token })
-      });
-        const user = await response.json();
-        if (user) dispatch(addUser(user));
-      }
-    }
-    setUser()
-  }, [dispatch])
+    if (userData) dispatch(addUser(userData))
+    if (error) toast.error(error);
+  }, [userData, dispatch])
 
   return (
     <div className="app">
@@ -43,9 +28,15 @@ function App() {
           }
         }}
       />
-      <Header />
-      <Outlet />
-      <Footer />
+      {
+        loading
+          ? <p>Loading...</p>
+          : <>
+            <Header />
+            <Outlet />
+            <Footer />
+          </>
+      }
     </div>
   );
 }
