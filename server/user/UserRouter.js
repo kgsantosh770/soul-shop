@@ -2,16 +2,18 @@ import express from "express";
 import User from "./UserSchema.js";
 import bcryptjs from "bcryptjs";
 import jwt from "jsonwebtoken";
+import AuthMiddleware from "./AuthMiddleware.js";
 import "dotenv/config";
 
 const env = process.env;
 const UserRouter = express.Router();
+const defaultErrorMessage = "Sorry! Something went wrong. Please try again or later.";
 
 UserRouter.post('/register', async (req, res) => {
-    const {name, email, password} = req.body;
+    const { name, email, password } = req.body;
     try {
-        const emailExist = await User.findOne({email: email});
-        if(emailExist) throw Error('Email already exist');
+        const emailExist = await User.findOne({ email });
+        if (emailExist) return res.status(403).json({ message: 'Email already exist' });
         const salt = bcryptjs.genSaltSync(10);
         const hashedPassword = bcryptjs.hashSync(password, salt);
         const user = new User({
@@ -20,51 +22,38 @@ UserRouter.post('/register', async (req, res) => {
             password: hashedPassword,
         })
         await user.save();
-        res.status(200).json({message: "Account created successfully."});
+        res.status(200).json({ message: "Account created successfully." });
     } catch (error) {
-        res.status(400).json({error: error.message});
+        res.status(400).json({ message: defaultErrorMessage });
     }
 })
 
-UserRouter.post('/login',async (req,res)=>{
-    const {email, password} = req.body;
+UserRouter.post('/login', async (req, res) => {
+    const { email, password } = req.body;
     try {
-        const user = await User.findOne({email});
-        if(!user) throw Error("Email does not exist.");
+        const user = await User.findOne({ email });
+        if (!user) return res.status(404).json({ message: "Email does not exist." });
         const passwordMatches = bcryptjs.compareSync(password, user.password);
-        if(!passwordMatches) throw Error("Invalid password");
-        delete user.password;
-        const userToken = jwt.sign({email: user.email}, env.JWT_ENCODE_STRING);
-        res.header('auth',userToken);
-        res.header('Access-Control-Expose-Headers', 'auth');
-        res.status(200).json({data: user,message: "Login Success."});
+        if (!passwordMatches) return res.status(401).json({ message: "Invalid password" });
+        user.password = undefined;
+        const userToken = jwt.sign({ email: user.email }, env.JWT_ENCODE_STRING);
+        res.header('Authorization', userToken);
+        res.header('Access-Control-Expose-Headers', 'Authorization');
+        res.status(200).json({ data: user, message: "Login Success" });
     } catch (error) {
-        res.status(400).json({error: error.message});
+        res.status(400).json({ message: defaultErrorMessage });
     }
 })
 
-UserRouter.post('/verifyToken', async(req,res)=>{
-    const {token} = req.body;
+UserRouter.get('/getUser', AuthMiddleware, async (req, res) => {
+    const token = req.header('Authorization');
     try {
-        const userData = jwt.verify(token,env.JWT_ENCODE_STRING);
-        if(!userData.email) res.status(401).json({error: "Unauthorized"});
-        res.status(200).json({message: "Authorized"});
+        const { email } = jwt.decode(token);
+        const user = await User.findOne({ email: email }).select(["-password"]);
+        if (!user) res.status(404).json({ success: false, message: "Email does not exist." });
+        res.status(200).json({ success: true, message: "", data: user });
     } catch (error) {
-        res.status(400).json({error: "Something went wront. Please try later."});
-    }
-})
-
-UserRouter.post('/getUser', async(req, res)=>{
-    const {token} = req.body;
-    try {
-        const isValidToken = jwt.verify(token,env.JWT_ENCODE_STRING);
-        if(!isValidToken) res.status(401).json({error: "Unauthorized"});
-        const tokenData = jwt.decode(token);
-        const user = await User.findOne({email: tokenData.email});
-        if(!user) res.status(404).json({error: "Email does not exist."});
-        res.status(200).json(user);
-    } catch (error) {
-        res.status(400).json({error: "Something went wront. Please try later."});
+        res.status(400).json({ success: false, message: "Something went wront. Please try later." });
     }
 })
 
