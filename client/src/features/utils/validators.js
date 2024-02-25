@@ -5,20 +5,4 @@ const isValidEmail = (email) => {
     return false;
 }
 
-const isAuthorized = async () => {
-    const token = localStorage.getItem('auth');
-    if (token) {
-        const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/verifyToken`, {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ token: token })
-        });
-        if (response.status === 200) return true;
-    }
-    return false;
-}
-
-export { isValidEmail, isAuthorized }
+export { isValidEmail }
