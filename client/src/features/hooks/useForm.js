@@ -3,7 +3,7 @@ import toast from "react-hot-toast";
 
 const useForm = (validateForm = () => true) => {
     const [loading, setLoading] = useState(false);
-    const [result, setResult] = useState({});
+    const [result, setResult] = useState(null);
 
     const getFormData = (e) => {
         const inputs = Array.from(e.target.elements).filter(input => input.type !== 'submit');
@@ -15,15 +15,14 @@ const useForm = (validateForm = () => true) => {
     const setInitialState = () => {
         toast.dismiss();
         setLoading(true);
-        setResult({});
+        setResult(null);
     }
 
     const handleSuccess = (response, responseData) => {
         setLoading(false);
         setResult({
-            message: responseData.message,
-            response: response,
-            data: responseData.data,
+            response,
+            responseData,
         });
         toast.success(responseData.message, { duration: 5000 });
     }
@@ -50,7 +49,7 @@ const useForm = (validateForm = () => true) => {
                 body: JSON.stringify(data),
             })
             const responseData = await response.json();
-            if (response.status !== 200) throw Error(responseData.error)
+            if (!response.ok) throw Error(responseData.message);
             handleSuccess(response, responseData);
         } catch (error) {
             toast.error(error.message, { duration: 5000 });
