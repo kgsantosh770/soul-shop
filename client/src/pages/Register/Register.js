@@ -1,14 +1,16 @@
 import { useEffect, useReducer } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { isAuthorized, isValidEmail } from "../../features/utils/validators";
+import { isValidEmail } from "../../features/utils/validators";
 import Form from "../../components/Form/Form";
 import Input from "../../components/Input/Input";
 import InputGroup from "../../components/InputGroup/InputGroup";
 import './Register.css';
 import useForm from "../../features/hooks/useForm";
 import toast from "react-hot-toast";
+import {useSelector} from "react-redux";
 
 const Register = () => {
+    const user = useSelector(state => state.user);
     const initialPasswordChecklist = [
         {
             id: 1,
@@ -72,9 +74,8 @@ const Register = () => {
     const { handleSubmit, result } = useForm(validateForm);
 
     useEffect(() => {
-        let authorized = isAuthorized();
-        if (authorized) navigate('/', { replace: true })
-    }, [navigate])
+        if (user) navigate('/', { replace: true })
+    }, [navigate, user])
 
 
     useEffect(() => {
@@ -82,7 +83,7 @@ const Register = () => {
             toast('Please sign in.');
         }
 
-        if (result.response?.status === 200)
+        if (result)
             handleSuccess();
     }, [result])
 
