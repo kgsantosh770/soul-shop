@@ -52,7 +52,7 @@ const useForm = (validateForm = () => true) => {
             if (!response.ok) throw Error(responseData.message);
             handleSuccess(response, responseData);
         } catch (error) {
-            toast.error(error.message, { duration: 5000 });
+            toast.error("Something went wrong. Please try later!", { duration: 5000 });
         }
     }
 
