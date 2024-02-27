@@ -1,10 +1,10 @@
 import toast from 'react-hot-toast'
 import { Navigate, Outlet } from 'react-router-dom';
-import { getToken } from './getters';
+import {useSelector} from "react-redux";
 
 const PrivateRoutes = () => {
-    const authorized = getToken();
-    if (authorized)
+    const user = useSelector(state => state.user);
+    if (user)
         return <Outlet />;
     else {
         toast.dismiss();
@@ -14,8 +14,8 @@ const PrivateRoutes = () => {
 }
 
 const PublicOnlyRoutes = () => {
-    const authorized = getToken();
-    if (!authorized) return <Outlet />
+    const user = useSelector(state => state.user);
+    if (!user) return <Outlet />
     else return <Navigate to='/' />;
 }
 
