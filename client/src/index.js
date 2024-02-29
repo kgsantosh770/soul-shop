@@ -9,7 +9,7 @@ import {
 import Home from './pages/Home/Home';
 import Categories from './pages/Categories/Categories';
 import Character from './pages/Character/Character';
-import Checkout from './pages/Checkout/Checkout';
+import Checkout from './pages/Cart/Cart';
 import PaymentOptions from './pages/PaymentOptions/PaymentOptions';
 import PaymentComplete from './pages/PaymentComplete/PaymentComplete';
 import Signin from './pages/Signin/Signin';
@@ -36,7 +36,7 @@ const router = createBrowserRouter([
         element: <Character />
       },
       {
-        path: '/checkout',
+        path: '/cart',
         element: <Checkout />
       },
       {
