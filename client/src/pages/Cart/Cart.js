@@ -3,10 +3,10 @@ import ArrowRightIcon from '../../assets/images/icons/arrow-right.svg';
 import Button from '../../components/Button/Button';
 import Image from '../../components/Image/Image';
 import { TAX, mostViewCharacters } from '../../features/utils/constants';
-import './Checkout.css';
+import './Cart.css';
 
 const NavigationButtons = ({ backRoute, nextRoute, mobile, desktop, disableBackButton }) => (
-  <div className={`checkout-nav-btns ${mobile ? 'only-mobile' : ''} ${desktop ? 'only-desktop' : ''}`}>
+  <div className={`cart-nav-btns ${mobile ? 'only-mobile' : ''} ${desktop ? 'only-desktop' : ''}`}>
     <Button
       className='back-btn'
       btnText='Back'
@@ -25,7 +25,7 @@ const NavigationButtons = ({ backRoute, nextRoute, mobile, desktop, disableBackB
   </div>
 )
 
-const Checkout = () => {
+const Cart = () => {
   const [characters] = useState(mostViewCharacters);
   const [subtotal] = useState(calculateSubtotal());
 
@@ -37,7 +37,7 @@ const Checkout = () => {
     return result;
   }
 
-  const CheckoutCard = ({ character }) => (
+  const CartCard = ({ character }) => (
     <div className='card'>
       <div className='name-img-section'>
         {
@@ -74,11 +74,11 @@ const Checkout = () => {
   )
 
   return (
-    <div className='checkout-page'>
+    <div className='cart-page'>
       <div className='inner-content'>
         <div className='cards-wrapper'>
           {
-            characters.map((character, index) => <CheckoutCard key={index} character={character} />)
+            characters.map((character, index) => <CartCard key={index} character={character} />)
           }
         </div>
         <div className='price-wrapper'>
@@ -101,5 +101,5 @@ const Checkout = () => {
   )
 }
 
-export default Checkout;
+export default Cart;
 export { NavigationButtons }

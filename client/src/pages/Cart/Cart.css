@@ -1,4 +1,4 @@
-.checkout-nav-btns {
+.cart-nav-btns {
     display: flex;
     justify-content: space-between;
     gap: 20px;
@@ -19,54 +19,54 @@
     margin: 0px 5px 0px 0px;
 }
 
-.checkout-page .inner-content {
+.cart-page .inner-content {
     border: 1.5px solid var(--border-color);
     padding: 20px 16px;
     margin: 20px;
     border-radius: 8px;
 }
 
-.checkout-page .key-value,
-.checkout-page .card:not(:first-child) {
+.cart-page .key-value,
+.cart-page .card:not(:first-child) {
     margin-top: 30px;
     padding-top: 30px;
     border-top: 1px solid var(--border-color);
 }
 
-.checkout-page .card>div {
+.cart-page .card>div {
     display: flex;
     align-items: center;
 }
 
-.checkout-page .char-name {
+.cart-page .char-name {
     color: var(--text-theme-color);
     font-family: var(--font-family-bold);
     font-size: var(--font-xxl);
 }
 
-.checkout-page .char-price {
+.cart-page .char-price {
     font-size: var(--font-medium);
     font-family: var(--font-family-semibold);
     color: var(--border-color);
 }
 
-.checkout-page .char-period {
+.cart-page .char-period {
     font-size: var(--font-small);
     display: inline;
     padding-left: 6px;
 }
 
-.checkout-page .name-img-section {
+.cart-page .name-img-section {
     display: flex;
     gap: 20px;
 }
 
-.checkout-page .quantity>p {
+.cart-page .quantity>p {
     font-size: var(--font-xs);
     margin: 10px 0px;
 }
 
-.checkout-page .quantity button {
+.cart-page .quantity button {
     font-size: var(--font-large);
     color: var(--border-color);
     width: 36px;
@@ -75,51 +75,51 @@
     border-radius: 8px;
 }
 
-.checkout-page .quantity .value {
+.cart-page .quantity .value {
     margin: 0px 12px;
     min-width: 15px;
     display: inline-block;
     text-align: center;
 }
 
-.checkout-page .card-img {
+.cart-page .card-img {
     border: 1.5px solid var(--border-color);
     min-width: 142px;
 }
 
-.checkout-page .card .desc {
+.cart-page .card .desc {
     font-size: var(--font-small);
     margin: 15px 0px;
 }
 
-.checkout-page .key-value {
+.cart-page .key-value {
     display: flex;
     justify-content: space-between;
 }
 
-.checkout-page .key-value .title {
+.cart-page .key-value .title {
     font-size: var(--font-large);
 }
 
-.checkout-page .key-value .value {
+.cart-page .key-value .value {
     font-family: var(--font-family-bold);
     font-size: var(--font-large);
     color: var(--text-theme-color);
     text-align: right;
 }
 
-.checkout-page .key-value .value.large-font {
+.cart-page .key-value .value.large-font {
     font-size: var(--font-xxl);
 }
 
-.checkout-page .key-value .subtitle {
+.cart-page .key-value .subtitle {
     margin-top: 8px;
     font-size: var(--font-xs);
     min-width: max-content;
 }
 
 @media only screen and (min-width: 768px) {
-    .checkout-page .inner-content {
+    .cart-page .inner-content {
         border-color: transparent;
         display: flex;
         justify-content: space-between;
@@ -127,32 +127,32 @@
         position: relative;
     }
 
-    .checkout-page .key-value:first-child{
+    .cart-page .key-value:first-child{
         border: 0px;
         margin-top: 0px;
     }
 
-    .checkout-page .card-img{
+    .cart-page .card-img{
         width: 200px;
         margin: 0px;
     }
 
-    .checkout-page .card{
+    .cart-page .card{
         display: flex;
         align-items: center;
         gap: 50px;
         font-size: var(--font-regular);
     }
 
-    .checkout-nav-btns{
+    .cart-nav-btns{
         margin: 40px 0px;
     }
 
-    .checkout-page .cards-wrapper{
+    .cart-page .cards-wrapper{
         max-width: 60%;
     }
 
-    .checkout-page .price-wrapper{
+    .cart-page .price-wrapper{
         align-self: flex-start;
         position: sticky;
         top: 120px;

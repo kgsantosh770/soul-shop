@@ -1,6 +1,6 @@
 import LockIcon from '../../assets/images/icons/lock.svg';
 import { PAYMENT_OPTIONS as paymentOptions, TAX } from '../../features/utils/constants';
-import { NavigationButtons } from '../Checkout/Checkout';
+import { NavigationButtons } from '../Cart/Cart';
 import './PaymentOptions.css';
 
 const PaymentOptions = () => {
