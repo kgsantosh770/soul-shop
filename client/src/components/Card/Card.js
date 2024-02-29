@@ -6,11 +6,12 @@ import Button from '../Button/Button';
 import './Card.css';
 import { Link } from 'react-router-dom';
 import { TOTAL_RATING } from '../../features/utils/constants';
-import { useDispatch } from 'react-redux';
-import { addToCart } from '../../redux/cartSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { addToCart, removeFromCart } from '../../redux/cartSlice';
 
 const Card = ({ id, showOptions, character }) => {
     const dispatch = useDispatch();
+    const isAvailableInCart = useSelector(state => state.cart.products.find(product => product.id === id) ? true : false)
     const Stars = ({ rating }) => {
         let elements = [];
         for (let i = 0; i < Number(TOTAL_RATING); i++) {
@@ -57,12 +58,20 @@ const Card = ({ id, showOptions, character }) => {
                         imageTitle='View Profile'
                         route={`/characters/${character.id}`}
                     />
-                    <Button
-                        btnText='Add to cart'
-                        image={CartIcon}
-                        imageTitle='Cart'
-                        handleClick={()=>dispatch(addToCart(character))}
-                    />
+                    {
+                        isAvailableInCart ?
+                            <Button
+                                btnText='Remove from cart'
+                                style={{fontSize: 'var(--font-xxs)'}}
+                                handleClick={() => dispatch(removeFromCart(character.id))}
+                            />
+                            : <Button
+                                btnText='Add to cart'
+                                image={CartIcon}
+                                imageTitle='Cart'
+                                handleClick={() => dispatch(addToCart(character))}
+                            />
+                    }
                 </div>
             }
         </div>

@@ -1,8 +1,6 @@
-import { useState } from 'react';
 import ArrowRightIcon from '../../assets/images/icons/arrow-right.svg';
 import Button from '../../components/Button/Button';
 import Image from '../../components/Image/Image';
-import { TAX } from '../../features/utils/constants';
 import { useSelector } from 'react-redux';
 import './Cart.css';
 
@@ -100,9 +98,9 @@ const Cart = () => {
                   <div className='key-value'>
                     <div>
                       <p className='title'>Total</p>
-                      <p className='subtitle'>Including ₹{TAX} in taxes</p>
+                      <p className='subtitle'>+ ₹{cartData.cartTax} in taxes</p>
                     </div>
-                    <p className='value large-font'>₹ {cartData.cartTotal + 70}</p>
+                    <p className='value large-font'>₹ {cartData.cartTotal + cartData.cartTax}</p>
                   </div>
                   <NavigationButtons desktop disableBackButton nextRoute={'/payment-options'} />
                 </div>

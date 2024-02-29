@@ -137,6 +137,10 @@
         position: relative;
     }
 
+    .cart-page .key-value{
+        gap: 90px;
+    }
+
     .cart-page .key-value:first-child{
         border: 0px;
         margin-top: 0px;

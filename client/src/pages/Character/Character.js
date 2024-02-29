@@ -5,11 +5,15 @@ import Image from '../../components/Image/Image';
 import { useParams } from 'react-router-dom';
 import { useState } from 'react';
 import { characters } from '../../features/utils/constants';
+import { useDispatch, useSelector } from 'react-redux';
+import { addToCart, removeFromCart } from '../../redux/cartSlice';
 import './Character.css';
 
 const Character = () => {
     let { id } = useParams();
     const [character] = useState(characters.find((char) => char.id.toString() === id));
+    const dispatch = useDispatch();
+    const isAvailableInCart = useSelector(state => state.cart.products.find(product => product.id === character.id) ? true : false)
 
     return (
         <div className="character-page">
@@ -42,8 +46,24 @@ const Character = () => {
                     </div>
                 }
                 <div className='btns'>
-                    <Button className='continue-btn' btnText='Buy Now' image={ArrowRightIcon} imageTitle='right-arrow' route={'/payment-options'}/>
-                    <Button className='cart-btn' btnText='Add to Cart' image={CartIcon} imageTitle='cart' />
+                    <Button className='continue-btn' btnText='Buy Now' image={ArrowRightIcon} imageTitle='right-arrow' route={'/payment-options'} />
+                    {
+                        isAvailableInCart ?
+                            <Button
+                                className='cart-btn'
+                                btnText='Remove from cart'
+                                image={CartIcon}
+                                imageTitle='cart'
+                                handleClick={() => dispatch(removeFromCart(character.id))}
+                            />
+                            : <Button
+                                className='cart-btn'
+                                btnText='Add to cart'
+                                image={CartIcon}
+                                imageTitle='cart'
+                                handleClick={() => dispatch(addToCart(character))}
+                            />
+                    }
                 </div>
             </div>
             {

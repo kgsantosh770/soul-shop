@@ -5,6 +5,8 @@ const initialUserState = {
     fromCart: true,
     shippingProducts: [],
     cartTotal: 0,
+    cartTax: 0,
+    totalTax: 0,
     subTotal: 0,
     total: 0,
 };
@@ -14,21 +16,22 @@ const changeProductQuantity = (state, id, value) => {
     if (product && (value > 0 || product.quantity > 1))
         product.quantity += value;
     else if (product && value < 0 && product.quantity <= 1)
-        removeProductFromCart(state, id);
+        state = removeProductFromCart(state, id);
     else
         console.log(`Product with id:${id} not found in cart.`);
 }
 
-const removeProductFromCart = (state, id) =>
+const removeProductFromCart = (state, id) => {
     state.products = state.products.filter(product => product.id !== id);
+    return state;
+}
 
 const changeTotal = (state) => {
-    if (state.products.length > 0)
-        state.cartTotal = state.products.reduce((total, product) => total + product.price, 0);
-    if (state.shippingProducts.length > 0)
-        state.subTotal = state.shippingProducts.reduce((total, product) => total + product.price, 0);
-    if(state.subTotal > 0)
-        state.total = state.subTotal + state.shippingProducts.reduce((taxTotal, product) => taxTotal + product.tax, 0);
+    state.cartTotal = state.products.reduce((total, product) => total + product.price, 0);
+    state.cartTax = state.products.reduce((taxTotal, product) => taxTotal + product.tax, 0);
+    state.taxTotal = state.shippingProducts.reduce((total, product) => total + product.tax, 0);
+    state.subTotal = state.shippingProducts.reduce((total, product) => total + product.price, 0);
+    state.total = state.subTotal + state.shippingProducts.reduce((taxTotal, product) => taxTotal + product.tax, 0);
     return state;
 }
 
@@ -42,8 +45,9 @@ const cartSlice = createSlice({
             return state;
         },
         removeFromCart: (state, action) => {
-            removeProductFromCart(state, action.payload.id)
-            changeTotal(state);
+            state = removeProductFromCart(state, action.payload);
+            state = changeTotal(state);
+            return state;
         },
         moveToShipping: (state) => state.shippingProducts = state.products,
         decrementProduct: (state, action) => {
