@@ -1,8 +1,9 @@
+import './Cart.css';
 import ArrowRightIcon from '../../assets/images/icons/arrow-right.svg';
 import Button from '../../components/Button/Button';
 import Image from '../../components/Image/Image';
-import { useSelector } from 'react-redux';
-import './Cart.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { decrementProduct, incrementProduct } from '../../redux/cartSlice';
 
 const NavigationButtons = ({ backRoute, nextRoute, mobile, desktop, disableBackButton }) => (
   <div className={`cart-nav-btns ${mobile ? 'only-mobile' : ''} ${desktop ? 'only-desktop' : ''}`}>
@@ -25,6 +26,7 @@ const NavigationButtons = ({ backRoute, nextRoute, mobile, desktop, disableBackB
 )
 
 const Cart = () => {
+  const dispatch = useDispatch();
   const cartData = useSelector(state => state.cart);
   const characters = cartData.products;
 
@@ -56,9 +58,19 @@ const Cart = () => {
 
             <div className='quantity'>
               <p>No. of months :</p>
-              <button>-</button>
+              <Button
+                className='cart-btn'
+                btnText='-'
+                style={{display: 'inline', padding: '0px'}}
+                handleClick={() => dispatch(decrementProduct(character.id))}
+              />
               <span className='value'>{character.quantity ?? 1}</span>
-              <button>+</button>
+              <Button
+                className='cart-btn'
+                btnText='+'
+                style={{display: 'inline', padding: '0px'}}
+                handleClick={() => dispatch(incrementProduct(character.id))}
+              />
             </div>
           </div>
         }

@@ -19,6 +19,7 @@ const changeProductQuantity = (state, id, value) => {
         state = removeProductFromCart(state, id);
     else
         console.log(`Product with id:${id} not found in cart.`);
+    return state;
 }
 
 const removeProductFromCart = (state, id) => {
@@ -40,7 +41,8 @@ const cartSlice = createSlice({
     initialState: initialUserState,
     reducers: {
         addToCart: (state, action) => {
-            state = { ...state, products: [...state.products, action.payload] };
+            const newProduct = {...action.payload, quantity: 1}
+            state = { ...state, products: [...state.products, newProduct] };
             state = changeTotal(state);
             return state;
         },
@@ -51,20 +53,23 @@ const cartSlice = createSlice({
         },
         moveToShipping: (state) => state.shippingProducts = state.products,
         decrementProduct: (state, action) => {
-            changeProductQuantity(state, action.payload.id, -1)
-            changeTotal(state);
+            state = changeProductQuantity(state, action.payload, -1)
+            state = changeTotal(state);
+            return state;
         },
         incrementProduct: (state, action) => {
-            changeProductQuantity(state, action.payload.id, 1)
-            changeTotal(state);
+            state = changeProductQuantity(state, action.payload, 1)
+            state = changeTotal(state);
+            return state;
         },
         addToShipping: (state, action) => {
             state.shippingProducts = [action.payload];
             state.fromCart = false;
-            changeTotal(state);
+            state = changeTotal(state);
+            return state;
         }
     }
 })
 
-export const { addToCart, removeFromCart } = cartSlice.actions;
+export const { addToCart, removeFromCart, moveToShipping, decrementProduct, incrementProduct, addToShipping } = cartSlice.actions;
 export default cartSlice.reducer;
