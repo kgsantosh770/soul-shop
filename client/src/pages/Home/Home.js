@@ -3,6 +3,7 @@ import AiSoulGroupImage from '../../assets/images/illustrations/group.png';
 import SoulInMobileImage from '../../assets/images/illustrations/smartphone-character.png';
 import CardGroup from '../../components/CardGroup/CardGroup';
 import { brands, popularCharacters as characters } from '../../features/utils/constants';
+import { Link } from 'react-router-dom';
 import Image from '../../components/Image/Image';
 import './Home.css';
 import BrandBox from '../../components/BrandBox/BrandBox';
@@ -40,9 +41,9 @@ const Home = () => {
                     <span className='highlight'>AI souls easily </span>
                     <span>on our platform</span>
                 </p>
-                <div className='try-now-btn'>
+                <Link className='try-now-btn' to={`/characters`}>
                     <Button btnText="Try it Now" />
-                </div>
+                </Link>
                 <img width="100%" alt="soul-in-mobile" title='AI Soul in mobile' src={SoulInMobileImage} />
             </div>
             <div className='subscription'>
