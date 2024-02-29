@@ -16,7 +16,7 @@ import SocialBox from '../SocialBox/SocialBox';
 import { useSelector } from 'react-redux';
 
 const Header = () => {
-  const cartItemCount = 7;
+  const cartItemCount = useSelector(state => state.cart.products.length);
   const [isMobileMenuOpen, setisMobileMenuOpen] = useState(false);
   const user = useSelector((state) => state.user);
   const navlinks = [
