@@ -77,11 +77,11 @@ const Header = () => {
       </div>
 
       <div className='right-icons'>
-        <button>
+        <Link to={`/cart`}>
           <IconBadge badgeCount={cartItemCount}>
             <img className='icon' alt='Cart' title='Cart' src={CartIcon} />
           </IconBadge>
-        </button>
+        </Link>
         <button className='only-desktop'>
           <IconBadge badgeCount={0}>
             <img className='icon profile' alt='Profile' title='Profile' src={ProfileIcon} />
