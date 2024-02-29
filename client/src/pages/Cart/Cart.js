@@ -2,7 +2,8 @@ import { useState } from 'react';
 import ArrowRightIcon from '../../assets/images/icons/arrow-right.svg';
 import Button from '../../components/Button/Button';
 import Image from '../../components/Image/Image';
-import { TAX, mostViewCharacters } from '../../features/utils/constants';
+import { TAX } from '../../features/utils/constants';
+import { useSelector } from 'react-redux';
 import './Cart.css';
 
 const NavigationButtons = ({ backRoute, nextRoute, mobile, desktop, disableBackButton }) => (
@@ -26,8 +27,8 @@ const NavigationButtons = ({ backRoute, nextRoute, mobile, desktop, disableBackB
 )
 
 const Cart = () => {
-  const [characters] = useState(mostViewCharacters);
-  const [subtotal] = useState(calculateSubtotal());
+  const cartData = useSelector(state => state.cart);
+  const characters = cartData.products;
 
   function calculateSubtotal() {
     let result = 0;
@@ -76,27 +77,40 @@ const Cart = () => {
   return (
     <div className='cart-page'>
       <div className='inner-content'>
-        <div className='cards-wrapper'>
-          {
-            characters.map((character, index) => <CartCard key={index} character={character} />)
-          }
-        </div>
-        <div className='price-wrapper'>
-          <div className='key-value'>
-            <p className='title'>Subtotal</p>
-            <p className='value'>₹ {subtotal}</p>
-          </div>
-          <div className='key-value'>
-            <div>
-              <p className='title'>Total</p>
-              <p className='subtitle'>Including ₹{TAX} in taxes</p>
-            </div>
-            <p className='value large-font'>₹ {subtotal + 70}</p>
-          </div>
-          <NavigationButtons desktop disableBackButton nextRoute={'/payment-options'}/>
-        </div>
+        {
+          characters.length <= 0
+            ? (
+              <div className='empty-cart'>
+                <h2>Empty Cart. </h2>
+                <Button btnText={`👉 Start finding your soulmates !`} route={`/characters`} />
+              </div>
+            )
+            : (
+              <>
+                <div className='cards-wrapper'>
+                  {
+                    characters.map((character, index) => <CartCard key={index} character={character} />)
+                  }
+                </div>
+                <div className='price-wrapper'>
+                  <div className='key-value'>
+                    <p className='title'>Subtotal</p>
+                    <p className='value'>₹ {cartData.cartTotal}</p>
+                  </div>
+                  <div className='key-value'>
+                    <div>
+                      <p className='title'>Total</p>
+                      <p className='subtitle'>Including ₹{TAX} in taxes</p>
+                    </div>
+                    <p className='value large-font'>₹ {cartData.cartTotal + 70}</p>
+                  </div>
+                  <NavigationButtons desktop disableBackButton nextRoute={'/payment-options'} />
+                </div>
+              </>
+            )
+        }
       </div>
-      <NavigationButtons mobile disableBackButton nextRoute={'/payment-options'}/>
+      <NavigationButtons mobile disableBackButton nextRoute={'/payment-options'} />
     </div>
   )
 }
