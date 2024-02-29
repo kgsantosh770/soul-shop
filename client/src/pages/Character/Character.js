@@ -42,7 +42,7 @@ const Character = () => {
                     </div>
                 }
                 <div className='btns'>
-                    <Button className='continue-btn' btnText='Buy Now' image={ArrowRightIcon} imageTitle='right-arrow' route={'/checkout'}/>
+                    <Button className='continue-btn' btnText='Buy Now' image={ArrowRightIcon} imageTitle='right-arrow' route={'/payment-options'}/>
                     <Button className='cart-btn' btnText='Add to Cart' image={CartIcon} imageTitle='cart' />
                 </div>
             </div>
