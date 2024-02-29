@@ -6,8 +6,11 @@ import Button from '../Button/Button';
 import './Card.css';
 import { Link } from 'react-router-dom';
 import { TOTAL_RATING } from '../../features/utils/constants';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../../redux/cartSlice';
 
 const Card = ({ id, showOptions, character }) => {
+    const dispatch = useDispatch();
     const Stars = ({ rating }) => {
         let elements = [];
         for (let i = 0; i < Number(TOTAL_RATING); i++) {
@@ -58,10 +61,7 @@ const Card = ({ id, showOptions, character }) => {
                         btnText='Add to cart'
                         image={CartIcon}
                         imageTitle='Cart'
-                        style={{ 
-                            backgroundColor: '#73788DA6',
-                            borderColor: '#73788DA6'
-                         }}
+                        handleClick={()=>dispatch(addToCart(character))}
                     />
                 </div>
             }
