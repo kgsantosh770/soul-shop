@@ -1,9 +1,11 @@
 import LockIcon from '../../assets/images/icons/lock.svg';
 import { PAYMENT_OPTIONS as paymentOptions, TAX } from '../../features/utils/constants';
 import { NavigationButtons } from '../Cart/Cart';
+import { useNavigate } from 'react-router-dom';
 import './PaymentOptions.css';
 
 const PaymentOptions = () => {
+    const navigate = useNavigate();
     const subtotal = 18900.99;
     const OptionCard = ({ option, checked }) => (
         <div className="option-card box-border">
@@ -32,6 +34,11 @@ const PaymentOptions = () => {
             </div>
         </div>
     )
+
+    const handleNext = () => {
+        navigate('/payment/success');
+    }
+
     return (
         <div className="pay-options-page">
             <p className="title">Select payment option</p>
@@ -58,7 +65,7 @@ const PaymentOptions = () => {
                 <img alt='secured' title='secured' src={LockIcon} />
                 <span>We protect your payment information using encryption to provide bank-level security.</span>
             </div>
-            <NavigationButtons backRoute={'/checkout'} nextRoute={'/payment/success'} />
+            <NavigationButtons backRoute={'/checkout'} handleNext={() => handleNext()} />
         </div>
     )
 }
