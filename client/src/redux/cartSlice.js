@@ -1,4 +1,4 @@
-import { createSlice, current } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialUserState = {
     products: [],
@@ -51,7 +51,11 @@ const cartSlice = createSlice({
             state = changeTotal(state);
             return state;
         },
-        moveToShipping: (state) => state.shippingProducts = state.products,
+        moveToShipping: (state) => {
+            state.shippingProducts = state.products;
+            state = changeTotal(state);
+            return state;
+        },
         decrementProduct: (state, action) => {
             state = changeProductQuantity(state, action.payload, -1)
             state = changeTotal(state);
