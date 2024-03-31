@@ -9,7 +9,7 @@ const PrivateRoutes = () => {
     else {
         toast.dismiss();
         toast("Please login to continue.");
-        return <Navigate to='/signin' />;
+        return <Navigate to='/signin' replace/>;
     }
 }
 
