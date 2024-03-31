@@ -1,4 +1,4 @@
-import { useEffect, useReducer,useRef } from "react";
+import { useEffect, useReducer, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { isValidEmail } from "../../features/utils/validators";
 import Form from "../../components/Form/Form";
@@ -7,7 +7,7 @@ import InputGroup from "../../components/InputGroup/InputGroup";
 import './Register.css';
 import useForm from "../../features/hooks/useForm";
 import toast from "react-hot-toast";
-import {useSelector} from "react-redux";
+import { useSelector } from "react-redux";
 
 const Register = () => {
     const user = useSelector(state => state.user);
@@ -81,7 +81,7 @@ const Register = () => {
 
     useEffect(() => {
         const handleSuccess = () => {
-            toast('Please sign in.');
+            navigate('/signin', { replace: true });
         }
 
         if (result)
