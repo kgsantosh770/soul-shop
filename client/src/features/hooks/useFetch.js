@@ -6,16 +6,16 @@ const useFetch = (options) => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
     const url = process.env.REACT_APP_API_BASE_URL + options?.route;
-    const fetchOptions = {
-        method: options?.method,
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-            'Authorization': getToken(),
-        },
-    }
-
+    
     useEffect(() => {
+        const fetchOptions = {
+            method: options?.method,
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': getToken(),
+            },
+        }
         const fetchData = async () => {
             setLoading(true)
             setError(null);
@@ -34,7 +34,7 @@ const useFetch = (options) => {
         if (options?.postData)
             fetchOptions.body = options.postData;
         if(options?.proceed) fetchData();
-    }, [url])
+    }, [url, options?.method, options?.postData, options?.proceed])
 
     return { data, loading, error }
 }

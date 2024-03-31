@@ -1,6 +1,6 @@
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
-import { Outlet, ScrollRestoration, useFetcher } from "react-router-dom";
+import { Outlet, ScrollRestoration } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 import './App.css';
 import { useEffect } from "react";
@@ -16,7 +16,7 @@ function App() {
   useEffect(() => {
     if (userData) dispatch(addUser(userData))
     if (error) toast.error(error);
-  }, [userData, dispatch])
+  }, [userData, dispatch, error])
 
   return (
     <div className="app">
