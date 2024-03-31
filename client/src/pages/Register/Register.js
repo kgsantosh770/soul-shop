@@ -1,4 +1,4 @@
-import { useEffect, useReducer } from "react";
+import { useEffect, useReducer,useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { isValidEmail } from "../../features/utils/validators";
 import Form from "../../components/Form/Form";
@@ -11,6 +11,7 @@ import {useSelector} from "react-redux";
 
 const Register = () => {
     const user = useSelector(state => state.user);
+    const emailRef = useRef(null);
     const initialPasswordChecklist = [
         {
             id: 1,
@@ -63,7 +64,7 @@ const Register = () => {
     }
 
     const validateForm = () => {
-        if (!isValidEmail) return "Invalid Email";
+        if (!isValidEmail(emailRef.current.value)) return "Invalid Email";
         const passwordCheckFailed = passwordChecks.find(check => check.status === false);
         if (passwordCheckFailed) return "Password does not match the below criterias.";
         return true;
@@ -103,6 +104,7 @@ const Register = () => {
                         id='email'
                         type='email'
                         placeholder='santosh@gmail.com'
+                        ref={emailRef}
                         required
                     />
                 </InputGroup>
