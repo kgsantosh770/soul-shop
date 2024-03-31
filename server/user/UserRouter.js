@@ -22,7 +22,7 @@ UserRouter.post('/register', async (req, res) => {
             password: hashedPassword,
         })
         await user.save();
-        res.status(200).json({ message: "Account created successfully." });
+        res.status(200).json({ message: "Account created successfully. Please Sign in." });
     } catch (error) {
         res.status(400).json({ message: defaultErrorMessage });
     }
