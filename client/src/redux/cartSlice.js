@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { getTotalPrice, getTotalTax } from "../features/utils/getters";
 
 const initialUserState = {
     products: [],
@@ -28,11 +29,11 @@ const removeProductFromCart = (state, id) => {
 }
 
 const changeTotal = (state) => {
-    state.cartTotal = state.products.reduce((total, product) => total + product.price, 0);
-    state.cartTax = state.products.reduce((taxTotal, product) => taxTotal + product.tax, 0);
-    state.taxTotal = state.shippingProducts.reduce((total, product) => total + product.tax, 0);
-    state.subTotal = state.shippingProducts.reduce((total, product) => total + product.price, 0);
-    state.total = state.subTotal + state.shippingProducts.reduce((taxTotal, product) => taxTotal + product.tax, 0);
+    state.cartTotal = getTotalPrice(state.products);
+    state.cartTax = getTotalTax(state.products)
+    state.taxTotal = getTotalTax(state.shippingProducts);
+    state.subTotal = getTotalPrice(state.shippingProducts);
+    state.total = Number(state.subTotal) + Number(state.taxTotal);
     return state;
 }
 

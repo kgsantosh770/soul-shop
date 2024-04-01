@@ -122,7 +122,7 @@ const Cart = () => {
                       <p className='title'>Total</p>
                       <p className='subtitle'>+ ₹{cartData.cartTax} in taxes</p>
                     </div>
-                    <p className='value large-font'>₹ {cartData.cartTotal + cartData.cartTax}</p>
+                    <p className='value large-font'>₹ {Number(cartData.cartTotal) + Number(cartData.cartTax)}</p>
                   </div>
                   <NavigationButtons desktop disableBackButton handleNext={()=>handleNext()} />
                 </div>
