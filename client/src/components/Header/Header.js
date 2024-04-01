@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect,useRef } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { DESKTOP_MIN_WIDTH } from '../../features/utils/constants';
 import LogoDesktop from '../../assets/images/logos/logo-desktop.svg';
@@ -13,17 +13,37 @@ import AppStoreImage from '../../assets/images/icons/app-store.svg';
 import './Header.css';
 import IconBadge from '../IconBadge/IconBadge';
 import SocialBox from '../SocialBox/SocialBox';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { deleteCart } from '../../redux/cartSlice';
+import { removeUser } from '../../redux/userSlice';
 
 const Header = () => {
   const cartItemCount = useSelector(state => state.cart.products.length);
   const [isMobileMenuOpen, setisMobileMenuOpen] = useState(false);
+  const [isProfilePopupOpen, setIsProfilePopupOpen] = useState(false);
   const user = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+  const profileIconRef = useRef();
   const navlinks = [
     { name: 'Characters', route: '/characters' },
     { name: 'About Us', route: '/about' },
     { name: 'Contact', route: '/contact' }
   ];
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (profileIconRef.current && !profileIconRef.current.contains(event.target)) {
+        setIsProfilePopupOpen(false);
+      }
+    };
+
+    document.body.addEventListener('click', handleClickOutside);
+
+    return () => {
+      document.body.removeEventListener('click', handleClickOutside);
+    };
+  }, [])
+
 
   const toggleSideMenu = () => {
     if (window.screen.width < 768) {
@@ -37,6 +57,17 @@ const Header = () => {
     }
   }
 
+  const logout = () => {
+    localStorage.removeItem('Authorization');
+    dispatch(deleteCart());
+    dispatch(removeUser());
+    setisMobileMenuOpen(false);
+  }
+
+
+  const toggleProfilePopup = () => {
+    setIsProfilePopupOpen(prev => !prev);
+  }
 
   const navLinkElements = (
     <ul className='nav-links'>
@@ -82,10 +113,17 @@ const Header = () => {
             <img className='icon' alt='Cart' title='Cart' src={CartIcon} />
           </IconBadge>
         </Link>
-        <button className='only-desktop'>
+        <button ref={profileIconRef} className='only-desktop profile-icon' onClick={() => toggleProfilePopup()}>
           <IconBadge badgeCount={0}>
             <img className='icon profile' alt='Profile' title='Profile' src={ProfileIcon} />
           </IconBadge>
+          {
+            user && isProfilePopupOpen &&
+            <ul className='profile-popup'>
+              <li className='name'>Hi {user.name}</li>
+              <li onClick={() => logout()}>Logout</li>
+            </ul>
+          }
         </button>
         {
           user === null &&
@@ -107,11 +145,12 @@ const Header = () => {
           <img alt='logo' title='logo' src={LogoMobileLarge} />
           {navLinkElements}
           {
-            user === null &&
+            user === null ?
             <>
               <Link onClick={toggleSideMenu} to={'/signin'} className='login-btn'>Signin</Link>
               <Link onClick={toggleSideMenu} to={'/register'} className='login-btn'>Register</Link>
-            </>
+            </> :
+            <Link onClick={()=>logout()} className='login-btn'>Logout</Link>
           }
           <SocialBox className='divider-top' />
           <div className='nav-footer'>

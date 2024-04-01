@@ -1,3 +1,4 @@
+import { useDispatch } from "react-redux";
 import { getToken } from "../utils/getters";
 
 const DONT_PROCEED = { proceed: false };
@@ -22,8 +23,7 @@ const userApi = {
         const token = getToken();
         if (!token) return DONT_PROCEED;
         return getOptions('/getUser', 'GET');
-    }
-
+    },
 };
 
 export default userApi;
