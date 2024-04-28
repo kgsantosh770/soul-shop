@@ -21,7 +21,7 @@ const Signin = () => {
         const user = responseData.data;
         if(user) dispatch(addUser(user));
       }
-      navigate(-1);
+      navigate('/');
     }
 
     if (result)
